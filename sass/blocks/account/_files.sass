@@ -1,0 +1,337 @@
+.files
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin: 0 auto
+    margin-top: 30px
+    &__search
+        position: relative
+        display: flex
+        // width: 800px
+        // height: 40px
+        &__input
+            width: 100%
+            height: 40px
+            border: none
+            border-radius: 15px
+            color: $color_text
+            background-color: $color_background_secondary
+            outline: none
+            padding-left: 40px
+            padding-right: 70px
+            font-size: 16px
+            &::placeholder
+                color: $color_text
+        &__icon
+            color: $color_text
+            position: absolute
+            font-size: 16px
+            top: 12px
+            left: 10px
+        &__button
+            position: absolute
+            right: 0
+            height: 40px
+            outline: none
+            border-radius: 0px 15px 15px 0px
+            border: none
+            font-size: 16px
+            background-color: $color_accent_primary
+            color: $color_text
+            cursor: pointer
+    &__manager
+        padding: 20px
+        margin-top: 100px
+        height: 700px
+        width: 1100px
+        background-color: $color_background_secondary
+        color: $color_text
+        border-radius: 15px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        &__navigation
+            display: flex
+            justify-content: space-between
+            align-items: center
+            &__file-type
+                padding: 5px
+                // min-width: 260px
+                // max-width: 390px
+                width: fit-content
+                display: flex
+                justify-content: space-between
+                align-items: center
+                &__menu
+                    position: relative
+                    display: flex
+                    width: 100px
+                    height: 30px
+                    justify-content: space-around
+                    color: $color_text
+                    background-color: $color_accent_primary
+                    border-radius: 15px
+                    align-items: center
+                    padding: 0px 7px 0px 7px
+                    &__item
+                        font-size: 22px
+                        margin-top: 5px
+                        cursor: pointer
+                        width: 100%
+                        span
+                            margin-left: 10px
+                    &__button
+                        height: 22px
+                        color: $color_text
+                        background-color: $color_accent_primary
+                        border: none
+                        cursor: pointer
+                        border-radius: 15px
+                        display: flex
+                        justify-content: space-around
+                        width: 100%
+                        font-size: 20px
+                    &__wrapper
+                        position: absolute
+                        display: flex
+                        flex-direction: column
+                        background-color: $color_accent_primary
+                        border-bottom-left-radius: 15px
+                        border-bottom-right-radius: 15px
+                        top: 30px
+                        width: 100%
+                        padding: 5px
+                        display: none
+                        
+                &__type
+                    margin-left: 20px
+                    font-size: 22px
+            &__file-view
+                display: flex
+                justify-content: space-around
+                align-items: center
+                width: 60px
+                height: 30px
+                border-radius: 15px
+                color: $color_text
+                background-color: $color_accent_primary
+                &__item
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    border-radius: 15px
+                    width: 100%
+                    height: 100%
+                    cursor: pointer
+        &__layout
+            display: flex
+            align-items: center
+            padding: 5px 
+            margin-bottom: 40px
+            height: 80%
+            border-radius: 10px
+            &__wrapper
+                padding: 10px
+                width: 100%
+                height: 95%
+                overflow-y: scroll
+
+                &::-webkit-scrollbar
+                    border-radius: 15px
+                    margin-right: 10px
+                    width: 6px
+                // &::-webkit-scrollbar-track
+                //     border-radius: 15px
+                    // background-color: $colour_three
+                &::-webkit-scrollbar-thumb
+                    background-color: $color_accent_secondary
+                    // border: 2px solid transparent
+                    border-radius: 100px
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+            
+.dropdown
+    z-index: 2
+    display: block
+.menu_active
+    border-bottom-left-radius: 0px
+    border-bottom-right-radius: 0px
+
+.big_files
+    .files__manager__layout
+        &__wrapper
+            display: grid
+            grid-template: repeat(auto-fill, 100px) / repeat(auto-fill, 100px)
+            column-gap: 40px
+            row-gap: 30px
+        &__item
+            position: relative
+            width: 100px
+            height: 100px
+            display: grid
+            grid-template: 60px 30px / 60px 10px
+            justify-content: center
+            align-content: center
+            justify-items: center
+            color: $color_accent_secondary
+            background-color: $color_file_bg
+            border-radius: 15px
+            &__menu
+                position: absolute
+                right: -60px
+                z-index: 2
+                display: none
+                flex-direction: column
+                justify-content: space-between
+                align-items: center
+                width: 70px
+                height: 60px
+                border-radius: 15px
+                color: $color_text
+                background-color: $color_accent_secondary
+                &__download
+                    width: 100%
+                    text-align: center
+                    cursor: pointer
+                    border-radius: 15px
+                    &:hover
+                        background-color: $color_accent_primary
+                &__delete
+                    width: 100%
+                    text-align: center
+                    cursor: pointer
+                    border-radius: 15px
+                    &:hover
+                        background-color: $color_accent_primary
+                &__info
+                    width: 100%
+                    text-align: center
+                    cursor: pointer
+                    border-radius: 15px
+                    &:hover
+                        background-color: $color_accent_primary
+            &__icon
+                font-size: 50px
+            &__name
+                overflow: hidden
+                line-height: 15px
+                text-align: center
+                font-size: 18px
+                width: 70px
+                // &:hover
+                //     z-index: 4
+                //     overflow: visible
+            &__button
+                font-size: 18px
+                cursor: pointer
+    .active_file_mini_menu
+        display: flex
+
+
+.small_files
+    .files__manager__layout
+        &__wrapper
+            // display: flex
+            // flex-direction: column
+            display: grid
+            row-gap: 10px
+        &__item
+            color: $color_accent_secondary
+            background-color: $color_file_bg
+            display: grid
+            grid-template: 50px / 5% 65% 25%
+            align-items: center
+            justify-content: center
+            width: 100%
+            height: 50px
+            border-radius: 15px
+            &__icon
+                display: flex
+                font-size: 40px
+            &__button
+                display: none
+            &__name
+                color: $color_text
+                padding-left: 15px
+                justify-self: start
+            &__menu
+                color: $color_text
+                display: flex
+                width: 100%
+                justify-content: space-between
+                &__download
+                    height: 30px
+                    text-align: center
+                    line-height: 30px
+                    width: 70px
+                    cursor: pointer
+                    border-radius: 15px
+                    &:hover
+                        background-color: $color_accent_primary
+                &__delete
+                    height: 30px
+                    text-align: center
+                    line-height: 30px
+                    width: 70px
+                    cursor: pointer
+                    border-radius: 15px
+                    &:hover
+                        background-color: $color_accent_primary
+                &__info
+                    height: 30px
+                    text-align: center
+                    line-height: 30px
+                    width: 70px
+                    cursor: pointer
+                    border-radius: 15px
+                    &:hover
+                        background-color: $color_accent_primary
+                    
+.current-files-view
+    background-color: $color_accent_secondary
+
+body.dark 
+    $color_text: #e7e7e7  // text #f7edef
+    $color_background_primary: #1b1b1a //body_bg #120809
+    $color_background_secondary: #4a4440 //items_bg #2b1217
+    $color_accent_primary:  #585643 //buttons & hovers #4ab09d  
+    $color_accent_secondary: #e7e7e7 //files #90d0c4 
+    $color_file_bg: #3b342f
+    .files
+        &__search
+            &__input
+                color: $color_text
+                background-color: $color_background_secondary
+                &::placeholder
+                    color: $color_text
+            &__icon
+                color: $color_text
+            &__button
+                background-color: $color_accent_primary
+                color: $color_text
+        &__manager
+            background-color: $color_background_secondary
+            color: $color_text
+            &__navigation
+                &__file-type
+                    &__menu
+                        color: $color_text
+                        background-color: $color_accent_primary
+                        &__button
+                            color: $color_text
+                            background-color: $color_accent_primary
+                        &__wrapper
+                            background-color: $color_accent_primary
+                &__file-view
+                    color: $color_text
+                    background-color: $color_accent_primary
+            &__layout
+                &__item
+                    color: $color_accent_secondary
+                    background-color: $color_file_bg
+                    &__menu
+                        color: $color_text
+                        background-color: $color_accent_primary
+                &__wrapper
+                    &::-webkit-scrollbar-thumb
+                        background-color: $color_accent_secondary

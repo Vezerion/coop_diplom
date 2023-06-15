@@ -1,0 +1,241 @@
+.login
+    margin: 0 auto
+    width: 1140px
+.signup
+    position: relative
+    text-align: center
+    display: flex
+    flex-direction: column
+    width: 325px
+    opacity: 0
+    transform: translateX(55%)
+    transition: 0.7s ease-in-out 0.4s
+    &__button
+        width: 230px
+        height: 40px
+        font-size: 20px
+        text-align: center
+        border-radius: 15px
+        border: none
+        cursor: pointer
+        align-self: center
+    &__promo
+        position: absolute
+        transform: translateX(-50%)
+        display: flex
+        flex-direction: column
+        align-content: center
+        height: 700px
+        width: 700px
+        z-index: 9
+        transition: 1s ease-in-out 0.4s
+        img
+            height: 90%
+            width: 90%
+        &__header
+            margin-bottom: 25px
+            font-size: 28px
+            color: $color_text
+            text-align: center
+        &__button
+            margin: 0 auto
+            font-size: 20px
+            height: 40px
+            width: 200px
+            text-align: center
+            border-radius: 15px
+            border: none
+            cursor: pointer
+
+    &__form
+        display: flex
+        flex-direction: column
+        justify-content: space-around
+        align-items: center
+        height: 600px
+        @include glass
+        &__header
+            font-size: 24px
+        &__input
+            width: 100%
+            input
+                height: 35px
+                border-radius: 15px
+                padding-left: 10px
+                width: 85%
+                border: none
+        select
+            position: relative
+            height: 35px
+            border-radius: 15px
+            padding-left: 10px
+            padding-right: 10px
+            width: 85%
+            appearance: none
+            border: none
+            background: url('../../../icons/select_arrow.svg') no-repeat 97%
+            background-color: #fff
+        &__sex
+            padding-left: 27px
+            padding-right: 27px
+            width: 100%
+            display: flex
+            justify-content: space-between
+            input
+                width: 18px
+                height: 18px
+        &__birth
+            padding-right: 5px
+.login:before 
+  content: ""
+  position: absolute
+  height: 2000px
+  width: 2000px
+  top: 5%
+  right: 40%
+  transform: translate(0%, -50%)
+  background-image: linear-gradient(-45deg, $color_accent_primary 0%, $color_accent_secondary 100%)
+  transition: 1.8s ease-in-out
+  border-radius: 50%
+  z-index: 8
+
+.login-body
+    overflow: hidden
+    background-color: $color_background_primary
+.form__containers
+    margin-top: 20%
+    justify-content: space-between
+    display: flex
+    width: 100%
+
+.signin
+    width: 325px
+    position: relative
+    display: flex
+    align-items: center
+    transform: translateX(0%)
+    z-index: 7
+    transition: 1.2s ease-in-out 0.7s
+    opacity: 1
+    &__form
+        display: flex
+        flex-direction: column
+        justify-content: space-around
+        align-items: center
+        height: 280px
+        width: 100%
+        @include glass
+        &__header
+            text-align: center
+            font-size: 28px
+        input
+            width: 85%
+            height: 35px
+            border-radius: 15px
+            padding-left: 10px
+            border: none
+        &__button
+            font-size: 20px
+            height: 40px
+            width: 200px
+            text-align: center
+            border-radius: 15px
+            border: none
+            cursor: pointer
+            align-self: center
+    &__promo
+        position: absolute
+        transform: translateX(310%)
+        height: 700px
+        width: 700px
+        display: flex
+        flex-direction: column
+        transition: 1s ease-in-out
+        z-index: 9
+        &__header
+            margin-bottom: 25px
+            font-size: 28px
+            color: $color_text
+            text-align: center
+        &__button
+            margin: 0 auto
+            font-size: 20px
+            height: 40px
+            width: 200px
+            text-align: center
+            border-radius: 15px
+            border: none
+            cursor: pointer
+        img
+            height: 100%
+            width: 100%
+
+.signup-mode.login:before
+    transform: translate(85%, -50%)
+    transition: 1.8s ease-in-out
+
+.signup-mode
+    .signup
+        opacity: 1
+        transform: translateX(0%)
+        transition: 0.7s ease-in-out 1s
+    .signin
+        transform: translateX(260%)
+        opacity: 0
+        transition: 1.8s ease-in-out
+    .signin__promo
+        transform: translateX(110%)
+        transition: 1s ease-in-out 0.4s
+    .signup__promo
+        transform: translateX(-180%)
+        transition: 1s ease-in-out 
+
+
+body.dark 
+    $color_text: #e7e7e7  // text #f7edef
+    $color_background_primary: #1b1b1a //body_bg #120809
+    $color_background_secondary: #4a4440 //items_bg #2b1217
+    $color_accent_primary:  #585643 //buttons & hovers #4ab09d  
+    $color_accent_secondary: #e7e7e7 //files #90d0c4 
+    $color_file_bg: #3b342f
+    .signup
+        &__form
+            background-color: $color_background_secondary
+            &__header
+                color: $color_text
+            &__sex
+                label
+                    color: $color_text
+        &__promo
+            &__header
+                color: $color_text
+            &__button
+                color: $color_text
+                background-color: $color_accent_primary
+        &__button
+                color: $color_text
+                background-color: $color_accent_primary
+
+    &__form
+        select
+            background-color: #fff
+    .login:before 
+        background-image: linear-gradient(-45deg, $color_accent_primary 0%, $color_accent_secondary 100%)
+
+    .login-body
+        background-color: $color_background_primary
+
+    .signin
+        &__form
+            background-color: $color_background_secondary
+            &__header
+                color: $color_text
+            &__button
+                color: $color_text
+                background-color: $color_accent_primary
+        &__promo
+            &__header
+                color: $color_text
+            &__button
+                color: $color_text
+                background-color: $color_accent_primary

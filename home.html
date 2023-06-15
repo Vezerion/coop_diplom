@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1a90b5bfd3.js" crossorigin="anonymous"></script>
+    <title>Домашняя страница</title>
+</head>
+<body>
+    <section class="header">
+        <nav class="header__navigation">
+            <div class="header__navigation__logo">
+                <img src="icons/logo_white.svg" alt="logo" class="header__navigation__logo__image">
+            </div>
+            <ul class="header__navigation__list">
+                <li class="header__navigation__list__item"><a href="" class="header__navigation__list__item__link">Главная</a></li>
+                <li class="header__navigation__list__item"><a href="" class="header__navigation__list__item__link">Контакты</a></li>
+                <li class="header__navigation__list__item"><a href="" class="header__navigation__list__item__link">Отзывы</a></li>
+                <li class="header__navigation__list__item"><a href="" class="header__navigation__list__item__link">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </section>
+    <section class="project">
+        <div class="container">
+            <h1 class="project__header reveal-top-onload">
+                Ваше наиболее полное решение для хранения данных
+            </h1>
+            <div class="project__info">
+                <div class="project__info__photo reveal-right-onload"><img src="img/header_1.webp" alt="photo" class="project__info__photo__image"></div>
+                <div class="project__info__slogan reveal-left-onload">Вам больше не надо беспокоиться о безопасности данных, об этом позаботимся мы! <br>
+                Получите доступ к важному из любого уголка планеты! <br>
+                Делайте больше с меньшими затратами!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="company">
+        <div class="container">
+            <div class="company__header reveal-top">Не тратьте деньги на жесткие диски</div>
+            <div class="company__info">
+                <div class="company__info__photo reveal-right">
+                    <img src="img/server.webp" alt="photo" class="company__info__photo__image">
+                </div>
+                <div class="company__info__slogan reveal-left">Храните самое ценное абсолютно бесплатно! Наш сервис предоставляет услуги облачного хранилища на бесплатной основе. С нами вы забудите о платных подписках.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workers">
+        <div class="container">
+            <div class="workers__header reveal-top">Хранение вдохновляет нас</div>
+            <div class="workers__cards">
+                <div class="workers__cards__card reveal-bottom" data-name="podrezov">
+                    <div class="workers__cards__card__wrapper">
+                        <div class="workers__cards__card__photo ">
+                            <img src="img/podrezov.jpg" alt="photo" class="workers__cards__card__photo__image">
+                        </div>
+                        <div class="workers__cards__card__name ">Подрезов Илья</div>
+                        <div class="workers__cards__card__description ">Frontend-разработчик</div>
+                        <div class="workers__cards__card__info ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, architecto iste at praesentium consequuntur numquam possimus ipsa suscipit veniam labore placeat, cum molestias rem quisquam magni vitae iure. Magnam delectus obcaecati illo similique? Minus modi asperiores impedit aspernatur quae nulla libero voluptate eveniet cum dolor repellendus tempore, unde nihil corporis.</div>
+                        <button class="workers__cards__card__button"><span class="workers__cards__card__button__text__small">Показать информацию</span> <span class="workers__cards__card__button__text__big hide">Скрыть информацию</span></button>
+                    </div>
+                </div>
+                <div class="workers__cards__card reveal-bottom" data-name="shestakov">
+                    <div class="workers__cards__card__wrapper">
+                        <div class="workers__cards__card__photo ">
+                            <img src="img/shestakov.jpg" alt="photo" class="workers__cards__card__photo__image">
+                        </div>
+                        <div class="workers__cards__card__name ">Шестаков Станислав</div>
+                        <div class="workers__cards__card__description ">Backend-разработчик</div>
+                        <div class="workers__cards__card__info ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, architecto iste at praesentium consequuntur numquam possimus ipsa suscipit veniam labore placeat, cum molestias rem quisquam magni vitae iure. Magnam delectus obcaecati illo similique? Minus modi asperiores impedit aspernatur quae nulla libero voluptate eveniet cum dolor repellendus tempore, unde nihil corporis.</div>
+                        <button class="workers__cards__card__button"><span class="workers__cards__card__button__text__small">Показать информацию</span> <span class="workers__cards__card__button__text__big hide">Скрыть информацию</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <div class="footer__contacts">
+            <div class="footer__contacts__header">Как с нами связаться</div>
+            <div class="footer__contacts__email">
+                Наш email: ilia.podrezov@gmail.com
+            </div>
+            <div class="footer__contacts__phone">
+                <a href="tel:+79996044809" class="footer__contacts__phone__link">Наш телефон: +79996044809</a>
+            </div>
+        </div>
+        <div class="footer__path">
+            <div class="footer__path__header">Как нас найти</div>
+            <iframe class="footer__path__map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d714.6691239968897!2d36.06347538994934!3d52.951107291962565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41321a7be87401e3%3A0xfe55c2268fc2e241!2z0J7RgNC70L7QstGB0LrQuNC5INCT0L7RgdGD0LTQsNGA0YHRgtCy0LXQvdC90YvQuSDQo9C90LjQstC10YDRgdC40YLQtdGCINC40LzQtdC90Lgg0Jgu0KEuINCi0YPRgNCz0LXQvdC10LLQsA!5e0!3m2!1sru!2sru!4v1682693419512!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="footer__socials">
+            <div class="footer__socials__header">Наши соц. сети</div>
+            <div class="footer__socials__links">
+                <a href="" class="footer__socials__links__vk">
+                    <i class="fa-brands fa-vk"></i>
+                </a>
+                <a href="" class="footer__socials__links__github">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="" class="footer__socials__links__telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="js/reveal.js"></script>
+    <script src="js/workers_cards.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
+    "></script>
+    <script src="js/theme_check.js"></script>
+
+</body>
+</html>

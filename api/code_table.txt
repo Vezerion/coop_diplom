@@ -1,0 +1,12 @@
+230 success
+231 Not all fields were entered
+232 Login already exists
+233 Invalid email
+234 Invalid password
+235 Empty request
+236 JSON error
+237 Not login
+238 ///
+239 ///
+240 Not session
+241 ///

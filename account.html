@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1a90b5bfd3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>Document</title>
+</head>
+<body class="body account">
+    <nav class="menu">
+        <div class="menu__header">
+            <div class="menu__header__logo">
+                <img src="icons/logo.svg" class="menu__header__logo__img">
+            </div>
+        </div>
+        <div class="menu__items">
+            <li class="menu__items__item menu__items__item__user short">
+                <div class="menu__items__item__user__logo">
+                    <img src="img/podrezov.jpg" alt="" class="menu__items__item__user__logo__img">
+                </div>
+                <div class="menu__items__item__user__info">
+                    <span class="menu__items__item__user__info-name">Vezerion</span>
+                    <span class="menu__items__item__user__info-user">incognito</span>
+                </div>
+            </li>
+            <li class="menu__items__item menu__items__item__files short">
+                <i class="menu__items__item__files__icon fa-regular fa-file"></i>
+                <div class="menu__items__item__files__header">Файловый Менеджер</div>
+            </li>
+            <li class="menu__items__item menu__items__item__contacts short">
+                <i class="menu__items__item__contacts__icon fa-regular fa-comment"></i>
+                <div class="menu__items__item__contacts__header">Обратная Связь</div>
+            </li>
+            <li class="menu__items__item menu__items__item__settings short">
+                <i class="menu__items__item__settings__icon fa-solid fa-gear"></i>
+                <div class="menu__items__item__settings__header">Настройки</div>
+            </li>
+            <li class="menu__items__item menu__items__item__logout short">
+                <i class="menu__items__item__logout__icon fa-solid fa-arrow-right-from-bracket"></i>
+                <div class="menu__items__item__logout__header">Выход</div>
+            </li>
+            <li class="menu__items__item menu__items__item__theme short">
+                <i class="menu__items__item__theme__icon  fa-regular"></i>
+                <div class="menu__items__item__theme__header"></div>
+            </li>
+            <i class="fa-solid fa-chevron-left menu__button"></i>
+        </div>
+    </nav>
+    <section class="files">
+        <div class="files__search">
+            <i class="fa-solid fa-magnifying-glass files__search__icon"></i>
+            <input type="text" class="files__search__input" placeholder="поиск файла">
+            <button class="files__search__button">Найти</button>
+        </div>
+        <div class="files__manager">
+            <div class="files__manager__navigation">
+                <div class="files__manager__navigation__file-type">
+                    <div class="files__manager__navigation__file-type__menu">
+                        <button class="files__manager__navigation__file-type__menu__button">
+                            <i class="fa-regular fa-file current-file-type"></i>                            
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="files__manager__navigation__file-type__menu__wrapper">
+                            <i class="fa-regular fa-file files__manager__navigation__file-type__menu__item" data-file-type="all"><span data-file-type="all">all</span></i>
+                            <i class="fa-regular fa-file-video files__manager__navigation__file-type__menu__item" data-file-type="video"><span data-file-type="video">video</span></i>
+                            <i class="fa-regular fa-file-audio files__manager__navigation__file-type__menu__item" data-file-type="audio"><span data-file-type="audio">audio</span></i>
+                            <i class="fa-regular fa-file-image files__manager__navigation__file-type__menu__item" data-file-type="image"><span data-file-type="image">image</span></i>
+                        </div>
+                    </div>
+                    <div class="files__manager__navigation__file-type__type">Все файлы</div>
+                </div>
+                <div class="files__manager__navigation__file-view">
+                    <i class="fa-solid fa-bars files__manager__navigation__file-view__item small-view"></i>
+                    <i class="fa-solid fa-grip files__manager__navigation__file-view__item big-view"></i>
+                </div>
+                
+            </div>
+            <div class="files__manager__layout"> <!-- big_files -->
+                    <div class="files__manager__layout__wrapper ">
+                        <div class="files__manager__layout__item">
+                            <i class="fa-solid fa-file-pen files__manager__layout__item__icon"></i>
+                            <i class="fa-solid fa-ellipsis-vertical files__manager__layout__item__button"></i>
+                            <div class="files__manager__layout__item__name">file name about some fucking shit</div>
+                            <div class="files__manager__layout__item__menu">
+                                <div class="files__manager__layout__item__menu__download">Скачать</div>
+                                <div class="files__manager__layout__item__menu__delete">Удалить</div>
+                                <div class="files__manager__layout__item__menu__info">Инфо</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <script src="
+    https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
+    "></script>
+    <script src="js/menu.js"></script>
+    <script src="js/files.js"></script>
+    
+    
+</body>
+</html>

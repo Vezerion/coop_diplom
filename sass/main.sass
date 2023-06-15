@@ -1,0 +1,96 @@
+@import 'base/_variables'
+@import 'base/_mixins'
+
+*
+    box-sizing: border-box
+    margin: 0
+    font-family: 'Open Sans', sans-serif
+    
+body
+    background-color: $color_background_primary
+
+.container
+    margin: 0 auto
+    width: 1140px
+
+@import 'blocks/home/_header'
+@import 'blocks/home/_project'
+@import 'blocks/home/_company'
+@import 'blocks/home/_workers'
+@import 'blocks/home/_footer'
+@import 'blocks/login/_signup'
+@import 'blocks/account/_menu'
+@import 'blocks/account/_files'
+
+.account
+    display: flex
+
+.reveal-left-active
+    transform: translate(-80px, 50px)
+    opacity: 1
+    transition: all 1s ease
+.reveal-top-active
+    transform: translateY(0px)
+    opacity: 1
+    transition: all 1s ease
+.reveal-right-active
+    transform: translateX(0px)
+    opacity: 1
+    transition: all 1s ease
+.reveal-bottom-active
+    transform: translateY(0px)
+    opacity: 1
+    transition: all 1s ease
+.reveal-left-onload-active
+    transform: translate(-80px, 50px)
+    opacity: 1
+    transition: all 1s ease
+.reveal-top-onload-active
+    transform: translateY(0px)
+    opacity: 1
+    transition: all 1s ease
+.reveal-right-onload-active
+    transform: translateX(0px)
+    opacity: 1
+    transition: all 1s ease
+
+
+.more-width
+    width: 100%
+    transition: 2s ease-in-out .5
+.bigger-card
+    width: 800px
+    transition: 2s ease-in-out .5
+.bigger-card[data-name="podrezov"]
+    background: url('../img/podrezov_bg.png') $color_background_secondary no-repeat
+.bigger-card[data-name="shestakov"]
+    background: url('../img/shestakov_bg.png') $color_background_secondary  no-repeat
+.wrapper-big
+    height: 100%
+    width: 400px
+    margin-left: 300px
+    transition: 2s ease-in-out .5
+.card-photo
+    display: none
+    transition: 2s ease-in-out .5
+.card-name
+    font-size: 16px
+    transition: 2s ease-in-out .5
+.card-descr
+    font-size: 16px
+    transition: 2s ease-in-out .5
+.hide
+    display: none
+    transition: 2s ease-in-out .5
+.card-info
+    margin-top: 40px
+    opacity: 1
+    display: inline-block
+    transition: 2s ease-in-out .5
+
+.left-out
+    transform: translateX(-135%)
+    transition: 1.5s ease-in-out
+.left-in
+    transform: translateX(-110%)
+    transition: 1.5s ease-in-out

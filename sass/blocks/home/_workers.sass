@@ -1,0 +1,110 @@
+.workers
+    margin-top: 100px
+    &__header
+        transform: translateY(-80px)
+        opacity: 0
+        transition: all 1s ease
+        margin: 0 auto
+        text-align: center
+        width: 800px
+        font-weight: 400
+        font-size: 48px
+        color: $color_text
+    &__cards
+        width: 800px
+        margin: 0 auto
+        margin-top: 60px
+        display: flex
+        justify-content: space-around
+        margin-bottom: 100px
+        transition: 1.5s
+        &__card
+            margin-left: 20px
+            margin-right: 20px
+            padding: 10px
+            width: 300px
+            height: 400px
+            display: flex
+            flex-direction: column
+            align-items: center
+            @include glass
+            transform: translateY(100px)
+            opacity: 0
+            transition: all 1s ease
+            background-color: $color_background_secondary
+            &__wrapper
+                display: flex
+                flex-direction: column
+                align-items: center
+            &__photo
+                width: 200px
+                height: 200px
+                &__image
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+                    border-radius: 100%
+            &__name
+                margin-top: 20px
+                font-size: 20px
+                color: $color_text
+            &__description
+                font-weight: 300
+                color: $color_text
+            &__info
+                opacity: 0
+                display: none
+            &__button
+                margin-top: 30px
+                height: 40px
+                display: flex
+                justify-content: center
+                align-items: center
+                cursor: pointer
+                background: none
+                border: 1px solid rgba(0, 0, 0, 0)
+                animation: border 3s infinite
+                border-radius: 10px
+                color: $color_text
+                &:hover
+                    background-color: $color_accent_primary
+                
+@keyframes border
+    0%
+        border: 1px solid $color_text
+    50%
+        border: 1px solid rgba(0, 0, 0, 0)
+    100%
+        border: 1px solid $color_text
+                   
+
+
+
+body.dark 
+    $color_text: #e7e7e7  // text #f7edef
+    $color_background_primary: #1b1b1a //body_bg #120809
+    $color_background_secondary: #4a4440 //items_bg #2b1217
+    $color_accent_primary:  #585643 //buttons & hovers #4ab09d  
+    $color_accent_secondary: #e7e7e7 //files #90d0c4 
+    $color_file_bg: #3b342f
+    .workers
+        &__header
+            color: $color_text
+        &__cards
+            &__card
+                background-color: $color_accent_primary
+                &__name
+                    color: $color_text
+                &__description
+                    color: $color_text
+                &__button
+                    color: $color_text
+                    &:hover
+                        background-color: $color_accent_primary      
+    @keyframes border
+        0%
+            border: 1px solid $color_text
+        50%
+            border: 1px solid rgba(0, 0, 0, 0)
+        100%
+            border: 1px solid $color_text

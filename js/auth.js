@@ -1,0 +1,82 @@
+const signInForm = document.querySelector('.signin__form');
+
+
+function signIn(form, url){
+    form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const dataJson = JSON.stringify(Object.fromEntries(formData.entries()));
+        await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: dataJson
+        }).then((data)=>{
+            if(data.status == 200) {
+                checkUserDataInCookies(dataJson);
+                form.reset();
+            } else {
+                throw new Error();
+            }
+            
+        }).catch(()=>{
+            showErrorMessage();
+        }).finally(()=>{
+
+        });
+    });
+}
+// signIn(signInForm, '../api/auth.php');
+signIn(signInForm, 'test.php');
+
+function checkUserDataInCookies(userData){
+    const cookieNamesArray = ['login', 'name', 'email', 'surname', 'date_of_birth', 'city', 'country', 'phone', 'username'];
+    let iterator = 0;
+    cookieNamesArray.forEach((item) => {
+        const res = Cookies.get(item);
+        if(res == undefined){
+            iterator++;
+        } 
+    });
+    if(iterator != 0) {
+        getUserDataFromServer(userData);
+    } else {
+        window.location.href = 'account.html';
+    }
+}
+
+async function getUserDataFromServer(data){
+    await fetch('test.php', {
+        method: "POST",
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: data
+    })
+    .then(data=> data.json())
+    .then((res)=>{
+        const dataArray = Object.entries(res);
+        console.log(dataArray);
+        dataArray.forEach(item => {
+            setUserDataInCookies(item);
+        });
+    }).catch()
+    .finally(()=>{
+        window.location.href = 'account.html';
+    });
+}
+
+function setUserDataInCookies(cookie) {
+    Cookies.set(cookie[0], cookie[1], { expires: 7 });
+}
+
+function showErrorMessage() {
+    const err = document.createElement('div');
+    err.innerHTML = "Логин и/или пароль не верны";
+    signInForm.insertAdjacentElement('beforeend', err);
+    setTimeout(()=>{
+        err.remove();
+    }, 5000);
+}
