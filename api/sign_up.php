@@ -4,37 +4,11 @@
     header("Content-Type: application/json; charset=UTF-8");
     $_POST = json_decode(file_get_contents('php://input'), true);
    
-    switch(json_last_error()){
-      case JSON_ERROR_NONE:
-        break;
-      case JSON_ERROR_DEPTH:
-        die("236 JSON_ERROR_DEPTH");
-      case JSON_ERROR_STATE_MISMATCH:
-        die("236 JSON_ERROR_STATE_MISMATCH");
-      case JSON_ERROR_CTRL_CHAR:
-        die("236 JSON_ERROR_CTRL_CHAR");
-      case JSON_ERROR_SYNTAX:
-        die("236 JSON_ERROR_SYNTAX");
-      case JSON_ERROR_UTF8:
-        die("236 JSON_ERROR_UTF8");
-      case JSON_ERROR_RECURSION:
-        die("236 JSON_ERROR_RECURSION");    
-      case JSON_ERROR_INF_OR_NAN:
-        die("236 JSON_ERROR_INF_OR_NAN");  
-      case JSON_ERROR_UNSUPPORTED_TYPE:
-        die("236 JSON_ERROR_UNSUPPORTED_TYPE");
-      case JSON_ERROR_INVALID_PROPERTY_NAME:
-        die("236 JSON_ERROR_INVALID_PROPERTY_NAME"); 
-      case JSON_ERROR_UTF16:
-        die("236 JSON_ERROR_UTF16");    
-      default:
-        die("236 UNDEFINED_ERROR");
-    }
-
+    json_check(json_last_error());
 
     if (isset($_SESSION['login'])){
       destroySession();
-      die("240");
+      die(http_response_code(240));
     }
     
     if (isset($_POST)){
@@ -51,18 +25,13 @@
       
   
       if ($login == "" || $pass == "" || $username == "")
-        die(json_encode("231"));
+        die(http_response_code(231));
       else
       {
         $result = queryMysql("SELECT * FROM user WHERE login='$login'");
   
-        if ($result->rowCount())
-          die(json_encode("232"));
-        elseif (!email_valid($email)){
-          die(json_encode("233"));
-        }
-        elseif(!checkPass($pass)){
-          die(json_encode("234"));
+        if ($result->rowCount() || !email_valid($email) || !checkPass($pass)){
+          die(http_response_code(232));
         }
         else{
         if ($date_of_birth == ""){
@@ -85,12 +54,12 @@
           $_SESSION['login'] = $login;
           $_SESSION['userpass'] = $pass;
           
-          die(json_encode("230"));
+          die(http_response_code(230));
         }
       }
     }
     else {
-      die(json_encode('235'));
+      die(http_response_code(235));
     }
 
 ?>

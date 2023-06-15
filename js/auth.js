@@ -14,7 +14,8 @@ function signIn(form, url){
             },
             body: dataJson
         }).then((data)=>{
-            if(data.status == 200) {
+            console.log(data.status);
+            if(data.status == 230) {
                 checkUserDataInCookies(dataJson);
                 form.reset();
             } else {
@@ -28,8 +29,8 @@ function signIn(form, url){
         });
     });
 }
-// signIn(signInForm, '../api/auth.php');
-signIn(signInForm, 'test.php');
+signIn(signInForm, '../api/auth.php');
+
 
 function checkUserDataInCookies(userData){
     const cookieNamesArray = ['login', 'name', 'email', 'surname', 'date_of_birth', 'city', 'country', 'phone', 'username'];

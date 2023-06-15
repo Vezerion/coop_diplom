@@ -1,5 +1,5 @@
 <?php
-    $host = 'localhost';
+    $host = 'j-5cloud';
     $data = 'j-5cloud';
     $user_id = '';
     $username = 'root';
@@ -64,6 +64,35 @@
             return true;
           } else {
             return false;
+          }
+    }
+
+    function json_check($last_msg){
+        switch($last_msg){
+            case JSON_ERROR_NONE:
+              break;
+            case JSON_ERROR_DEPTH:
+              return(http_response_code(236));
+            case JSON_ERROR_STATE_MISMATCH:
+              die("236 JSON_ERROR_STATE_MISMATCH");
+            case JSON_ERROR_CTRL_CHAR:
+              die("236 JSON_ERROR_CTRL_CHAR");
+            case JSON_ERROR_SYNTAX:
+              die("236 JSON_ERROR_SYNTAX");
+            case JSON_ERROR_UTF8:
+              die("236 JSON_ERROR_UTF8");
+            case JSON_ERROR_RECURSION:
+              die("236 JSON_ERROR_RECURSION");    
+            case JSON_ERROR_INF_OR_NAN:
+              die("236 JSON_ERROR_INF_OR_NAN");  
+            case JSON_ERROR_UNSUPPORTED_TYPE:
+              die("236 JSON_ERROR_UNSUPPORTED_TYPE");
+            case JSON_ERROR_INVALID_PROPERTY_NAME:
+              die("236 JSON_ERROR_INVALID_PROPERTY_NAME"); 
+            case JSON_ERROR_UTF16:
+              die("236 JSON_ERROR_UTF16");    
+            default:
+              die("236 UNDEFINED_ERROR");
           }
     }
 ?>

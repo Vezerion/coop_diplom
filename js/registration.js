@@ -30,12 +30,12 @@ function signUp(form, url){
         });
     });
 }
-// signUp(signUpForm, '../api/sign_up.php');
-signUp(signUpForm, 'test.php');
+signUp(signUpForm, '../api/sign_up.php');
+
 
 function httpRequestCodes(code, data) {
     switch (code) {
-        case 200:
+        case 230:
             // Регистрация успешна
             setUserDataToCookies(data);
             signUpForm.reset();
