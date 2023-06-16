@@ -1,5 +1,5 @@
 <?php
-    $host = 'j-5cloud';
+    $host = 'localhost';
     $data = 'j-5cloud';
     $user_id = '';
     $username = 'root';

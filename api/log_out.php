@@ -2,10 +2,14 @@
   require_once 'functions.php';
   session_start();
   header("Content-Type: application/json; charset=UTF-8");
-  if (isset($_SESSION['login']))
+  $_POST = json_decode(file_get_contents('php://input'), true);
+  $login = sanitizeString($_POST['login']);
+  $username = sanitizeString($_POST['username']);
+  $email = sanitizeString($_POST['email']);
+  if (isset($_SESSION[$login]))
   {
     destroySession();
-    die(json_encode("230"));
+    die(http_response_code(230));;
   }
-  else die(json_encode("240"));
+  else die(http_response_code(240));
 ?>

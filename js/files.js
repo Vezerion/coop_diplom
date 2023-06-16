@@ -46,7 +46,7 @@ async function getFiles() {
     formData.append('email', Cookies.get('email'));
     formData.append('username', Cookies.get('username'));
     const dataJson = JSON.stringify(Object.fromEntries(formData.entries()));
-    await fetch('files.php', {
+    await fetch('../api/get_dir_data.php', {
         method: "POST",
         headers: {
             'Content-type': 'application/json'
@@ -54,6 +54,7 @@ async function getFiles() {
         body: dataJson
     }).then(data=> data.json()).then((file)=>{
         console.log(file);
+        console.log(typeof file);
         file.forEach(obj => {
             const item = document.createElement("div");
             item.classList.add('files__manager__layout__item');
@@ -61,9 +62,9 @@ async function getFiles() {
             `
                 <i class="fa-solid fa-file-pen files__manager__layout__item__icon"></i>
                 <i class="fa-solid fa-ellipsis-vertical files__manager__layout__item__button"></i>
-                <div class="files__manager__layout__item__name">${obj.name}</div>
+                <div class="files__manager__layout__item__name">${obj.filename}</div>
                 <div class="files__manager__layout__item__menu">
-                    <div class="files__manager__layout__item__menu__download" data-name="${obj.name}">Скачать</div>
+                    <div class="files__manager__layout__item__menu__download" data-name="${obj.filename}">Скачать</div>
                     <div class="files__manager__layout__item__menu__delete">Удалить</div>
                     <div class="files__manager__layout__item__menu__info">Инфо</div>
                 </div>
@@ -164,7 +165,7 @@ async function getFiles() {
         const formData = new FormData();
 
         formData.append('file', fileField);
-        fetch('app.php', {
+        fetch('../api/updoad.php', {
             method: "POST",
             body: formData
         })
