@@ -1,7 +1,7 @@
 <?php 
 
     require_once 'functions.php';
-
+    header("Content-Type: application/octet-stream");
     $login = $_SESSION['login'];
     $user_id = queryMysql("SELECT user_id FROM user WHERE login = '$login'")->fetch(PDO::FETCH_BOTH);
     $user_id = $user_id[0];

@@ -165,7 +165,7 @@ async function getFiles() {
         const formData = new FormData();
 
         formData.append('file', fileField);
-        fetch('../api/updoad.php', {
+        fetch('../api/upload.php', {
             method: "POST",
             body: formData
         })
@@ -175,6 +175,7 @@ async function getFiles() {
         })
         .finally(()=>{
             fileUploadForm.reset();
+            fileName.innerText = "Файл не выбран";
             // files();
             getFiles();
         });

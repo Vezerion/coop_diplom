@@ -49,6 +49,7 @@
           queryMysql("INSERT INTO profile VALUES('$username', '$name','$surname','$date_of_birth','$country','$city','$phone','$date_of_create', '$user_id')");
           queryMysql("INSERT INTO dir VALUES('$dir_id','$date_of_create')");
           queryMysql("INSERT INTO user_has_files VALUES('$user_id','$dir_id')");
+          queryMysql("INSERT INTO storage(dirname, dir_ID) VALUES('$dir_id', '$dir_id')");
           
           session_start();
           $_SESSION['login'] = $login;

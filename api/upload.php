@@ -1,30 +1,31 @@
 <?php 
+
   require_once 'functions.php';
-  header("Content-Type: application/json; charset=UTF-8");
+
+  header("Content-Type: application/octet-stream; charset=UTF-8");
+  
   session_start();
-  $_POST = json_decode(file_get_contents('php://input'), true);
-  if (isset($_POST)){
-    $login = sanitizeString($_POST['login']);
-    $username = sanitizeString($_POST['username']);
-    $email = sanitizeString($_POST['email']);
-    $user_id = queryMysql("SELECT user_id FROM user WHERE login = '$login'")->fetch(PDO::FETCH_BOTH);
-    $user_id = $user_id[0];
-    $file_path = queryMysql("SELECT dir_id FROM user_has_files WHERE user_id = '$user_id'")->fetch(PDO::FETCH_BOTH);
+ 
+  if (isset($_SESSION['login'])){
+     
+    $login = sanitizeString($_SESSION['login']);
 
-    if(isset($_FILES['file_id'])){
+    $user_id = queryMysql("SELECT user_id FROM user WHERE login = '$login'")->fetch(PDO::FETCH_BOTH)[0];
+    $dir_path = queryMysql("SELECT dir_id FROM user_has_files WHERE user_id = '$user_id'")->fetch(PDO::FETCH_BOTH)[0];
 
+    if(isset($_FILES['file']['name'])){
       $date_of_upload = date("F j, Y, g:i a");
-      $filename = $_FILES['file_id'];
-      $saveto = "var/www/usr/$file_path[0]/$filename[name]";
-      $saveto = str_replace(' ', '_', $saveto);
-      move_uploaded_file($_FILES['file_id']['tmp_name'], $saveto);
+      $filename = $_FILES['file']['name'];
+      $saveto = "var/www/usr/$dir_path/" . str_replace(' ', '_', $filename);
+      //$saveto = str_replace(' ', '_', $saveto);
+      move_uploaded_file($_FILES['file']['tmp_name'], $saveto);
       $file_type = filetype($saveto);
       $file_size = filesize($saveto);
-      queryMysql("INSERT INTO storage VALUES('$file_path[0]','$filename[name]', '$file_size', '$file_type', ' $date_of_upload', '$file_path[0]')");
+      queryMysql("INSERT INTO storage(dirname, filename,  date_of_upload, dir_ID, filesize, type) VALUES('$dir_path','$filename', '$date_of_upload', '$dir_path', '$file_size', '$file_type')");
     }
 
-    die(json_encode("230"));
+    die(http_response_code(230));
 
   }
-  else die(json_encode("237")); 
+  else die(http_response_code(237)); 
 ?>
