@@ -54,10 +54,7 @@
             <input type="text" class="files__search__input" placeholder="поиск файла">
             <button class="files__search__button">Найти</button>
         </div>
-        <form class="files__upload">
-            <input name="file" type="file" class="files__upload__input">
-            <button class="files__upload__button" type="submit">Загрузить</button>
-        </form>
+        
         <div class="files__manager">
             <div class="files__manager__navigation">
                 <div class="files__manager__navigation__file-type">
@@ -75,6 +72,12 @@
                     </div>
                     <div class="files__manager__navigation__file-type__type">Все файлы</div>
                 </div>
+                <form class="files__upload">
+                    <input name="file" type="file" class="files__upload__input">
+                    <button class="files__upload__choice__button">Выберите файл</button>
+                    <span class="files__upload__name">Файл не выбран</span>
+                    <button class="files__upload__button" type="submit">Загрузить</button>
+                </form>
                 <div class="files__manager__navigation__file-view">
                     <i class="fa-solid fa-bars files__manager__navigation__file-view__item small-view"></i>
                     <i class="fa-solid fa-grip files__manager__navigation__file-view__item big-view"></i>
@@ -83,16 +86,7 @@
             </div>
             <div class="files__manager__layout"> <!-- big_files -->
                     <div class="files__manager__layout__wrapper ">
-                        <div class="files__manager__layout__item">
-                            <i class="fa-solid fa-file-pen files__manager__layout__item__icon"></i>
-                            <i class="fa-solid fa-ellipsis-vertical files__manager__layout__item__button"></i>
-                            <div class="files__manager__layout__item__name">file name about some fucking shit</div>
-                            <div class="files__manager__layout__item__menu">
-                                <div class="files__manager__layout__item__menu__download">Скачать</div>
-                                <div class="files__manager__layout__item__menu__delete">Удалить</div>
-                                <div class="files__manager__layout__item__menu__info">Инфо</div>
-                            </div>
-                        </div>
+                    
                     </div>
             </div>
         </div>

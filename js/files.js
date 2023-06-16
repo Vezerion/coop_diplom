@@ -9,11 +9,16 @@ window.addEventListener('DOMContentLoaded', () => {
     dropdown_btn_icon = document.querySelector('.current-file-type'),
     file_view = document.querySelector('.files__manager__layout'),
     file_view_btns = document.querySelectorAll('.files__manager__navigation__file-view__item');
-
+    const chooseFileBtn = document.querySelector('.files__upload__choice__button');
+    const fileInput = document.querySelector('.files__upload__input');
+    const fileName = document.querySelector('.files__upload__name');
+    
     dropdown_btn.addEventListener('click', ()=> {
     menu.classList.toggle('menu_active');
     dropdown_menu.classList.toggle('dropdown');
     });
+
+    
 // Тип показываемого файла
     menu_item.forEach((item)=>{
     item.addEventListener('click', (e)=>{
@@ -154,7 +159,16 @@ async function getFiles() {
     }
     file_view_cookies();
 
-
+    chooseFileBtn.addEventListener('click', ()=>{
+        fileInput.click();
+    });
+    fileInput.addEventListener('change', (e)=>{
+        if(fileInput.files.length === 0){
+            fileName.innerText = "Файл не выбран";
+            return;
+        }
+        fileName.innerText = fileInput.files[0].name;
+    });
 
     // Функция для загрузки файла на сервер 
     const fileUploadForm = document.querySelector('.files__upload');
@@ -175,6 +189,7 @@ async function getFiles() {
         })
         .finally(()=>{
             fileUploadForm.reset();
+            fileName.innerText = "Файл не выбран";
             // files();
             getFiles();
         });
@@ -222,3 +237,6 @@ function download(){
         URL.revokeObjectURL(url);
     }
 });
+
+//
+
