@@ -74,10 +74,14 @@ function setUserDataInCookies(cookie) {
 }
 
 function showErrorMessage() {
-    const err = document.createElement('div');
-    err.innerHTML = "Логин и/или пароль не верны";
-    signInForm.insertAdjacentElement('beforeend', err);
-    setTimeout(()=>{
-        err.remove();
-    }, 5000);
+    if(document.querySelector('.error')){
+        const err = document.createElement('div');
+        err.classList.add('error');
+        err.innerHTML = "Логин и/или пароль не верны";
+        signInForm.insertAdjacentElement('beforeend', err);
+        setTimeout(()=>{
+            err.remove();
+        }, 5000);
+    }
+    
 }

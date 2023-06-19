@@ -1,6 +1,6 @@
 .files
     position: relative
-    display: flex
+    display: none
     flex-direction: column
     justify-content: space-between
     margin: 0 auto
@@ -365,3 +365,12 @@ body.dark
                 &__wrapper
                     &::-webkit-scrollbar-thumb
                         background-color: $color_accent_secondary
+        &__upload
+            &__button
+                color: $color_text
+                background-color: $color_accent_primary
+            &__choice__button
+                color: $color_text
+                background-color: $color_accent_primary
+    .current-files-view
+        background-color: $color_file_bg
