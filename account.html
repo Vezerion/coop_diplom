@@ -25,15 +25,15 @@
                     <span class="menu__items__item__user__info-user">incognito</span>
                 </div>
             </li>
-            <li class="menu__items__item menu__items__item__files short">
+            <li class="menu__items__item menu__items__item__files short screen" data-screen="files">
                 <i class="menu__items__item__files__icon fa-regular fa-file"></i>
                 <div class="menu__items__item__files__header">Файловый Менеджер</div>
             </li>
-            <li class="menu__items__item menu__items__item__contacts short">
+            <li class="menu__items__item menu__items__item__contacts short screen" data-screen="feedback">
                 <i class="menu__items__item__contacts__icon fa-regular fa-comment"></i>
                 <div class="menu__items__item__contacts__header">Обратная Связь</div>
             </li>
-            <li class="menu__items__item menu__items__item__settings short">
+            <li class="menu__items__item menu__items__item__settings short screen" data-screen="settings">
                 <i class="menu__items__item__settings__icon fa-solid fa-gear"></i>
                 <div class="menu__items__item__settings__header">Настройки</div>
             </li>
@@ -48,7 +48,7 @@
             <i class="fa-solid fa-chevron-left menu__button"></i>
         </div>
     </nav>
-    <section class="files">
+    <section class="files section screen_active">
         <div class="files__search">
             <i class="fa-solid fa-magnifying-glass files__search__icon"></i>
             <input type="text" class="files__search__input" placeholder="поиск файла">
@@ -91,12 +91,117 @@
             </div>
         </div>
     </section>
+    <section class="feedback section">
+        <div class="feedback__buttons">
+            <button class="feedback__buttons__tech">Техподдержка</button>
+            <button class="feedback__buttons__review">Отзыв</button>
+        </div>
+        <div class="feedback__tech form_active">
+            <h2 class="feedback__tech__header">Связь с техподдержкой</h2>
+            <div class="feedback__tech__descr">Если у вас возникли проблемы или вопросы касательно работы нашего сервиса, заполните форму, и мы свяжемся с вами.</div>
+            <form action="" class="feedback__tech__form">
+                <textarea name="" id="" cols="30" rows="10" class="feedback__tech__form__message" required maxlength="900"></textarea>
+                <button type="submit" class="feedback__tech__form__button">Отправить</button>
+            </form>
+        </div>
+        <div class="feedback__review">
+            <h2 class="feedback__review__header">Оставить отзыв о сервисе</h2>
+            <div class="feedback__review__descr">Если вы хотите оставить отзыв о работе нашего сервиса, заполните форму, это поможет нам улучшить наш сервис.</div>
+            <form action="" class="feedback__review__form">
+                <textarea name="" id="" cols="30" rows="10" class="feedback__review__form__message" required maxlength="900"></textarea>
+                <button type="submit" class="feedback__review__form__button">Отправить</button>
+            </form>
+        </div>
+        
+    </section>
+    <section class="settings section">
+        <h2 class="settings__header">Изменить данные учетной записи</h2>
+        <form action="" class="settings__form">
+            <div class="settings__form__item">
+                <label for="login" class="settings__form__item__header">Ваш новый логин</label>
+                <div class="settings__form__item__wrapper">
+                    <input data-name="login" name="login" type="text" class="settigns__form__login settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>
+            </div>
+            
+            <div class="settings__form__item">
+                <label for="username" class="settings__form__item__header">Введите ваш новый никнейм</label>
+                <div class="settings__form__item__wrapper">
+                    <input data-name="username" name="username" type="text" class="settigns__form__username settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>     
+            </div>
+            <div class="settings__form__item">
+                <label for="name" class="settings__form__item__header">Ваше новое имя</label>
+                <div class="settings__form__item__wrapper">
+                    <input data-name="login" name="login" type="text" class="settigns__form__name settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>
+            </div>
+            <div class="settings__form__item">
+                <label for="surname" class="settings__form__item__header">Введите вашу новую фамилию</label>
+                <div class="settings__form__item__wrapper">
+                    <input data-name="surname" name="surname" type="text" class="settigns__form__surname settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>
+                
+            </div>
+            <div class="settings__form__item">
+                <label for="date_of_birth" class="settings__form__item__header">Введите дату вашего рождения</label>
+                <div class="settings__form__item__wrapper">
+                    <input data-name="date_of_birth" name="date_of_birth" type="date" class="settigns__form__date settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>
+                
+            </div>
+            <div class="settings__form__item">
+                <label for="phone" class="settings__form__item__header">Введите номер вашего телефона</label>
+                <div class="settings__form__item__wrapper">
+                    <input maxlength="11" data-name="phone" name="phone" type="tel" class="settigns__form__phone settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>
+                
+            </div>
+            <div class="settings__form__item">
+                <label for="email" class="settings__form__item__header">Введите вашу почту</label>
+                <div class="settings__form__item__wrapper">
+                    <input data-name="email" name="email" type="email" class="settigns__form__email settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>
+                
+            </div>
+            <!-- <div class="settings__form__item">
+                <label for="userpass" class="settings__form__item__header">Введите ваш новый пароль</label>
+                <div class="settings__form__item__wrapper">
+                    <input data-name="userpass" name="userpass" type="text" class="settigns__form__password settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>
+                
+            </div>
+            <div class="settings__form__item">
+                <label for="userpass_confirm" class="settings__form__item__header">Подтвердите ваш пароль</label>
+                <div class="settings__form__item__wrapper">
+                    <input data-name="userpass_confirm" name="userpass_confirm" type="text" class="settigns__form__password-confirm settings__form__input">
+                    <i class="fa-solid fa-pen settings__form__change-btn"></i>
+                </div>
+                
+            </div> -->
+            <div class="settings__form__buttons">
+                <button type="submit" class="settings__form__submit-btn">Сохранить</button>
+                <button class="settings__form__cancel-btn">Отмена</button>
+            </div>
+        </form>
+    </section>
+    <script src="js/checkSession.js"></script>
     <script src="
     https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
     "></script>
     <script src="js/menu.js"></script>
     <script src="js/files.js"></script>
-    
+    <script src="js/feedback.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/exit.js"></script>
     
 </body>
 </html>

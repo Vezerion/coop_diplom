@@ -21,12 +21,13 @@
     }
     
     function queryMysql($query){
-        global $pdo;
-        return $pdo->query($query);
+      global $pdo;
+        
+      return $pdo->query($query);
     }
     
     function destroySession(){
-        //$_SESSION=array();
+        $_SESSION=array();
     
         if (session_id() != "" || isset($_COOKIE[session_name()]))
           setcookie(session_name(), '', time()-2592000, '/');
@@ -39,8 +40,8 @@
         $var = strip_tags($var);
         $var = htmlentities($var);
     
-        $result = $pdo->quote($var);          // This adds single quotes
-        return str_replace("'", "", $result); // So now remove them
+        $result = $pdo->quote($var);          
+        return str_replace("'", "", $result); 
     }
 
     function checkPass($user_pass){

@@ -80,12 +80,16 @@ function setUserDataToCookies(data) {
 }
 
 function errorMessage() {
-    const err = document.createElement('div');
-    err.innerHTML = "Что то пошло не так попробуйте снова.";
-    signUpForm.insertAdjacentElement('beforeend', err);
-    setTimeout(()=>{
-        err.remove();
-    }, 5000);
+    if(document.querySelector('.error')){
+        err.classList.add('error');
+        const err = document.createElement('div');
+        err.innerHTML = "Что то пошло не так попробуйте снова.";
+        signUpForm.insertAdjacentElement('beforeend', err);
+        setTimeout(()=>{
+            err.remove();
+        }, 5000);
+    }
+    
 }
 
 phoneInput.addEventListener('keypress', (e)=>{

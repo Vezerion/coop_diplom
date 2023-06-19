@@ -1,35 +1,27 @@
 <?php 
   require_once('functions.php');
-  session_start();
+  
   header("Content-Type: application/json; charset=UTF-8");
-  $_POST = json_decode(file_get_contents('php://input'), true);
-  if (isset($_POST))
+  if (isset($_SERVER["REQUEST_METHOD"]) == "POST")
+    $data = json_decode(file_get_contents('php://input'), true);
+  if (!isset($data['login']) || !isset($data['userpass']))
   {
-    $login = sanitizeString($_POST['login']);
-    $pass = sanitizeString($_POST['userpass']);
-    $pass = hash('md5', $pass);
-
-    if ($login == "" || $pass == "")
-      die(http_response_code(231));
-    else
-    {
-      $result = queryMySQL("SELECT login,userpass FROM user
-        WHERE login='$login' AND userpass='$pass'");
-     
-      if ($result->rowCount() == 0)
-      {
-        die(http_response_code(237));
-      }
-      else
-      {
-        $_SESSION['login'] = $login;
-        $_SESSION['userpass'] = $pass;
-        
-        die(http_response_code(230));
-      }
-    }
+    http_response_code(235);
+    die(json_encode(['error' => 'Неверный запрос']));
+  }
+  $login = sanitizeString($data['login']);
+  $userpass = sanitizeString($data['userpass']);
+   
+  $result = queryMySQL("SELECT login,userpass FROM user WHERE login='$login'")->fetch(PDO::FETCH_LAZY);  
+  
+  if(isset($result->login) &&  isset($result->userpass) && $result->login == $login && password_verify($userpass, $result->userpass)){
+    session_start();
+    $_SESSION['login'] = $login;
+    $_SESSION['userpass'] = $pass;
+    die(http_response_code(230));
   }
   else {
-    die(http_response_code(235));
+    die(http_response_code(237));
   }
+
 ?>

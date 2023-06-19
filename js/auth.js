@@ -49,7 +49,7 @@ function checkUserDataInCookies(userData){
 }
 
 async function getUserDataFromServer(data){
-    await fetch('test.php', {
+    await fetch('../api/get_user_data.php', {
         method: "POST",
         headers: {
             'Content-type': 'application/json'
@@ -62,22 +62,30 @@ async function getUserDataFromServer(data){
         console.log(dataArray);
         dataArray.forEach(item => {
             setUserDataInCookies(item);
+            
         });
-    }).catch()
-    .finally(()=>{
+    })
+    .then(()=>{
         window.location.href = 'account.html';
-    });
+    })
+    .catch();
+    
 }
 
 function setUserDataInCookies(cookie) {
     Cookies.set(cookie[0], cookie[1], { expires: 7 });
+    console.log(`${cookie[0]}: ${cookie[1]}`);
 }
 
 function showErrorMessage() {
-    const err = document.createElement('div');
-    err.innerHTML = "Логин и/или пароль не верны";
-    signInForm.insertAdjacentElement('beforeend', err);
-    setTimeout(()=>{
-        err.remove();
-    }, 5000);
+    if(document.querySelector('.error')){
+        const err = document.createElement('div');
+        err.classList.add('error');
+        err.innerHTML = "Логин и/или пароль не верны";
+        signInForm.insertAdjacentElement('beforeend', err);
+        setTimeout(()=>{
+            err.remove();
+        }, 5000);
+    }
+    
 }
