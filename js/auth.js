@@ -49,7 +49,7 @@ function checkUserDataInCookies(userData){
 }
 
 async function getUserDataFromServer(data){
-    await fetch('test.php', {
+    await fetch('../api/get_user_data.php', {
         method: "POST",
         headers: {
             'Content-type': 'application/json'
@@ -62,11 +62,14 @@ async function getUserDataFromServer(data){
         console.log(dataArray);
         dataArray.forEach(item => {
             setUserDataInCookies(item);
+            
         });
-    }).catch()
-    .finally(()=>{
+    })
+    .then(()=>{
         window.location.href = 'account.html';
-    });
+    })
+    .catch();
+    
 }
 
 function setUserDataInCookies(cookie) {
