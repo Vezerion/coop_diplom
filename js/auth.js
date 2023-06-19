@@ -74,6 +74,7 @@ async function getUserDataFromServer(data){
 
 function setUserDataInCookies(cookie) {
     Cookies.set(cookie[0], cookie[1], { expires: 7 });
+    
 }
 
 function showErrorMessage() {
