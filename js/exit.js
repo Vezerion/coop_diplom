@@ -26,5 +26,3 @@ function deleteAllUserDataFromCookies(){
         Cookies.remove(cookie);
     });
 }
-
-deleteAllUserDataFromCookies();
