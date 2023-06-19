@@ -1,0 +1,54 @@
+.feedback
+    display: none
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    margin: 0 auto
+    margin-top: 30px
+    &__buttons
+        display: flex
+        justify-content: space-between
+        width: 350px
+        &__tech
+            @include btn
+        &__review
+            @include btn
+    &__tech
+        @include feedback_form
+    &__review
+        @include feedback_form
+.error
+        margin-top: 30px
+        color: $color_text
+body.dark   
+    $color_text: #e7e7e7  // text #f7edef
+    $color_background_primary: #1b1b1a //body_bg #120809
+    $color_background_secondary: #4a4440 //items_bg #2b1217
+    $color_accent_primary:  #585643 //buttons & hovers #4ab09d  
+    $color_accent_secondary: #e7e7e7 //files #90d0c4 
+    $color_file_bg: #3b342f
+    .feedback__buttons__tech
+        background-color: $color_accent_primary
+        color: $color_text
+    .feedback__buttons__review
+        background-color: $color_accent_primary
+        color: $color_text
+    .feedback__review__header
+        color: $color_text
+    .feedback__review__descr
+        color: $color_text
+    .feedback__tech__header
+        color: $color_text
+    .feedback__tech__descr
+        color: $color_text
+    .feedback__review__form__button
+        background-color: $color_accent_primary
+        color: $color_text
+    .feedback__tech__form__button
+        background-color: $color_accent_primary
+        color: $color_text
+    .feedback__tech__form__message
+        background-color: $color_accent_secondary
+    .error
+        margin-top: 30px
+        color: $color_text
