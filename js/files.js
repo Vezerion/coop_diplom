@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
-    if(Cookies.get('PHPSESSID') == undefined){
-        window.location.href = "home.html";
-    } else {
+    // if(Cookies.get('PHPSESSID') == undefined){
+    //     window.location.href = "home.html";
+    // } else {
         const dropdown_menu = document.querySelector('.files__manager__navigation__file-type__menu__wrapper'),
         dropdown_btn = document.querySelector('.files__manager__navigation__file-type__menu__button'),
         menu = document.querySelector('.files__manager__navigation__file-type__menu'),
@@ -210,7 +210,7 @@ window.addEventListener('DOMContentLoaded', () => {
             file2.forEach((item)=>{
                 item.addEventListener('click', (e)=>{
                     const data = e.target.getAttribute("data-name");
-                    fetch('download.php',{
+                    fetch('../api/download.php',{
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/octet-stream'
@@ -235,7 +235,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 link.remove();
                 URL.revokeObjectURL(url);
             }
-        }
+     // }
     
 });
 

@@ -39,8 +39,10 @@
         $result = queryMysql("SELECT * FROM user WHERE login='$login'");
   
         if ($result->rowCount() || !email_valid($email) || !checkPass($pass) || 
-            !((preg_match("/[a-z]/", $name) || preg_match("/[A-Z]/", $name)) && !preg_match("/[0-9]/", $name) || preg_match("//", $name)) ||
-            !((preg_match("/[a-z]/", $surname) || preg_match("/[A-Z]/", $surname)) && !preg_match("/[0-9]/", $surname) || preg_match("//", $surname)) 
+            !((preg_match("/[a-z]/", $name) || preg_match("/[A-Z]/", $name)) && !preg_match("/[0-9]/", $name) || 
+            preg_match("//", $name)) ||
+            !((preg_match("/[a-z]/", $surname) || preg_match("/[A-Z]/", $surname)) && !preg_match("/[0-9]/", $surname) 
+            || preg_match("//", $surname)) 
         ){
           http_response_code(232);
           die();

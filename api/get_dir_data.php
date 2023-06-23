@@ -1,9 +1,9 @@
 <?php 
     require_once 'functions.php';
     header("Content-Type: application/json; charset=UTF-8");
-    header("Location: account.html");
+   
     session_start();
-    
+    header("Location: account.html");
     $_POST = json_decode(file_get_contents('php://input'), true);
 
     if(isset($_POST)){

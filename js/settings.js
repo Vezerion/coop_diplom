@@ -76,4 +76,4 @@ function newUserCredentialsFormPostData(form, url){
         });
     });
 }
-newUserCredentialsFormPostData(form, '../api/');
+newUserCredentialsFormPostData(form, '../api/change_users_data.php');
