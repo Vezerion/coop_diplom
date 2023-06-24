@@ -41,8 +41,8 @@ function feedbackFormPostData(form, url){
         });
     });
 }
-feedbackFormPostData(formTech, '../api/');
-feedbackFormPostData(formReview, '../api/');
+feedbackFormPostData(formTech, '../api/inverse_connection.php');
+feedbackFormPostData(formReview, '../api/inverse_connection.php');
 
 function showError(form) {
     if(!document.querySelector('.error')){

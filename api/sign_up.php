@@ -2,26 +2,34 @@
     require_once('functions.php');
 
     header("Content-Type: application/json; charset=UTF-8");
-    $_POST = json_decode(file_get_contents('php://input'), true);
-   
+    date_default_timezone_set('Etc/GMT-3');
     json_check(json_last_error());
-
-    if (isset($_SESSION['login'])){
-      destroySession();
-      die(http_response_code(240));
-    }
     
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['login']) && isset($_POST['userpass'])){
-      $username = sanitizeString($_POST['username']);
-      $pass = sanitizeString($_POST['userpass']);
-      $login = sanitizeString($_POST['login']);
-      $email = sanitizeString($_POST['email']);
-      $name = sanitizeString($_POST['name']);
-      $surname = sanitizeString($_POST['surname']);
-      $date_of_birth = sanitizeString($_POST['date_of_birth']);
-      $country = sanitizeString($_POST['country']);
-      $city = sanitizeString($_POST['city']);
-      $phone = sanitizeString($_POST['phone']);
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+      $data = json_decode(file_get_contents('php://input'), true);
+    }
+    else {
+      http_response_code(239);
+      die();
+    }
+
+    if (check_session()){
+      destroySession();
+      http_response_code(240);
+      die();
+  }
+    
+    if (isset($data['email']) && isset($data['login']) && isset($data['userpass'])){
+      $username = sanitizeString($data['username']);
+      $pass = sanitizeString($data['userpass']);
+      $login = sanitizeString($data['login']);
+      $email = sanitizeString($data['email']);
+      $name = sanitizeString($data['name']);
+      $surname = sanitizeString($data['surname']);
+      $date_of_birth = sanitizeString($data['date_of_birth']);
+      $country = sanitizeString($data['country']);
+      $city = sanitizeString($data['city']);
+      $phone = sanitizeString($data['phone']);
       
       if ($login == "" || $pass == "" || $username == ""){
         http_response_code(231);

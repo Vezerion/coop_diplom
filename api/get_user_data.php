@@ -1,14 +1,21 @@
 <?php 
     require_once 'functions.php';
     header("Content-Type: application/json; charset=UTF-8");
-
     session_start();
+    if (!check_session()){
+        http_response_code(240);
+        die();
+    }
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $data = json_decode(file_get_contents('php://input'), true);
     }
+    else{
+        http_response_code(239);
+        die();
+    }
 
-    if(isset($_SESSION['login']) && isset($data)){
+    if(check_session() && isset($data)){
         
         $login = $_SESSION['login'];
         $get_user_data = queryMysql("SELECT user_id, login, email FROM user WHERE login = '$login'")->fetch(PDO::FETCH_LAZY);

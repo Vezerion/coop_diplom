@@ -8,9 +8,11 @@
     
     if (isset($_SERVER["REQUEST_METHOD"]) == "POST")
         $data = json_decode(file_get_contents('php://input'), true);
-    
-    if (!isset($_SESSION['login'])){
-        destroySession();
+    else{
+        http_response_code(239);
+        die();
+    }
+    if (!check_session()){
         http_response_code(240);
         die();
     }

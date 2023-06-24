@@ -1,19 +1,29 @@
 <?php 
     require_once 'functions.php';
     header("Content-Type: application/json; charset=UTF-8");
-   
-    session_start();
     header("Location: account.html");
-    $_POST = json_decode(file_get_contents('php://input'), true);
+    session_start();
+    if (!check_session()){
+        http_response_code(240);
+        die();
+    }
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $data = json_decode(file_get_contents('php://input'), true);
+    }
+    else{
+        http_response_code(239);
+        die();
+    }
 
-    if(isset($_POST)){
+   
+    if(isset($data)){
         
-        $login = sanitizeString($_POST['login']);
-        $username = sanitizeString($_POST['username']);
-        $email = sanitizeString($_POST['email']);
+        $login = sanitizeString($data['login']);
+        $username = sanitizeString($data['username']);
+        $email = sanitizeString($data['email']);
         
         $user = queryMysql("SELECT user_id FROM user WHERE login = '$login'")->fetchColumn();
-       // $user_id = $user_id[0];
         $dir_path = queryMysql("SELECT dir_id FROM user_has_files WHERE user_id = '$user'")->fetchColumn();
 
         $output = queryMysql("SELECT filename FROM storage WHERE dir_ID = '$dir_path'")->fetchAll(PDO::FETCH_ASSOC);

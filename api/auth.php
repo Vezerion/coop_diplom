@@ -2,8 +2,21 @@
   require_once('functions.php');
   
   header("Content-Type: application/json; charset=UTF-8");
+  
   if (isset($_SERVER["REQUEST_METHOD"]) == "POST")
     $data = json_decode(file_get_contents('php://input'), true);
+  else {
+    http_response_code(239);
+    die();
+  }
+
+  
+  if (check_session()){
+    http_response_code(240);
+    die();
+  }
+
+
   if (!isset($data['login']) || !isset($data['userpass']))
   {
     http_response_code(235);
@@ -18,10 +31,12 @@
     session_start();
     $_SESSION['login'] = $login;
     $_SESSION['userpass'] = $pass;
-    die(http_response_code(230));
+    http_response_code(230);
+    die();
   }
   else {
-    die(http_response_code(237));
+    http_response_code(237);
+    die();
   }
 
 ?>

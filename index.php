@@ -11,12 +11,13 @@
     $r = new router();
 
     if(isset($_SESSION['login'])){
-        
+        $r->add_route("/", "home.html");
         $r->add_route("/home", "home.html");
         $r->add_route("/account", "account.html");
         
     }
     else{
+        $r->add_route("/", "home.html");
         $r->add_route("/home", "home.html");
         $r->add_route("/login", "login.html");
     }

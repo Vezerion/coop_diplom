@@ -7,11 +7,18 @@
   
   if ($_SERVER["REQUEST_METHOD"] == "POST")
     $data = json_decode(file_get_contents('php://input'), true);
-
+  else {
+    http_response_code(239);
+    die();
+  }
   if (isset($_SESSION['login']))
   {
     destroySession();
-    die(http_response_code(230));
+    http_response_code(230);
+    die();
   }
-  else die(http_response_code(240));
+  else{
+    http_response_code(240);
+    die();
+  } 
 ?>

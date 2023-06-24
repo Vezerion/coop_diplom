@@ -14,7 +14,7 @@ exitBtn.addEventListener('click', async (e)=>{
         console.log(data)
         if(data.status == 230) {
             deleteAllUserDataFromCookies();
-            window.location.href = 'login.html';
+            window.location.href = 'login';
         }
     })
     .catch();

@@ -96,4 +96,15 @@
               die("236 UNDEFINED_ERROR");
           }
     }
+
+    function check_session()
+    {
+      session_start();
+      if (isset($_SESSION['login'])){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
 ?>

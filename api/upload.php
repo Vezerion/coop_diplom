@@ -4,10 +4,22 @@
   //date_default_timezone_set(date_default_timezone_get());
   date_default_timezone_set('Etc/GMT-3');
   header("Content-Type: application/octet-stream; charset=UTF-8");
-  $file = file_get_contents('php://input');
   session_start();
- 
-  if (isset($_SESSION['login'])){
+  
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $file = file_get_contents('php://input');
+  }
+  else {
+    http_response_code(239);
+    die();
+  }
+
+  if (!check_session()){
+    http_response_code(240);
+    die();
+  }
+
+  if (check_session()){
      
     $login = sanitizeString($_SESSION['login']);
 
