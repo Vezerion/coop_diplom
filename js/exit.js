@@ -3,7 +3,7 @@ const exitBtn = document.querySelector('.menu__items__item__logout');
 exitBtn.addEventListener('click', async (e)=>{
     const data = new FormData();
     data.append('session', Cookies.get('PHPSESSID'));
-    await fetch('', {
+    await fetch('../api/log_out.php', {
         method: "POST",
         headers: {
             'Content-type': 'application/json'

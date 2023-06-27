@@ -1,12 +1,12 @@
 230 Success
 231 Not all fields were entered
 232 Invalid input data
-233 //
-234 //
+233 LOGIN ALREADY EXISTS
+234 EMAIL ALREADY EXISTS
 235 Empty request
 236 JSON error
-237 Empty set from db
-238 ///
-239 ///
+237 DB ERROR or Empty set from db 
+238 There is already a file with this name
+239 Another request was received
 240 Not session
 241 ///

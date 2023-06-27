@@ -70,7 +70,7 @@ async function getUserDataFromServer(data){
 
 function setUserDataInCookies(cookie) {
     Cookies.set(cookie[0], cookie[1], { expires: 7 });
-    
+    console.log(`${cookie[0]}: ${cookie[1]}`);
 }
 
 function showErrorMessage() {

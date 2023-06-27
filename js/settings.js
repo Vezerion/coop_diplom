@@ -78,6 +78,7 @@ function newUserCredentialsFormPostData(form, url){
     });
 }
 newUserCredentialsFormPostData(form, '../api/change_users_data.php');
+newUserCredentialsFormPostData(form, '../api/change_users_data.php');
 
 function setNewUserDataToCookies(data) {
     const userData = JSON.parse(data);
