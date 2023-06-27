@@ -64,16 +64,43 @@ function newUserCredentialsFormPostData(form, url){
             body: dataJson
         }).then((data)=>{
             if(data.status == 230) {
-                form.reset();
+                setNewUserDataToCookies(data);
+                formInput.forEach(item => {
+                    item.readOnly = true;
+                    item.value = Cookies.get(item.getAttribute('data-name'));
+                });
             } else {
                 throw new Error();
             }
-            
         }).catch(()=>{
             showError(form);
-        }).finally(()=>{
-
         });
     });
 }
-newUserCredentialsFormPostData(form, '../api/');
+newUserCredentialsFormPostData(form, '../api/change_users_data.php');
+
+function setNewUserDataToCookies(data) {
+    const userData = JSON.parse(data);
+    console.log(userData);
+    Cookies.set('username', userData.username, { expires: 7 });
+    Cookies.set('surname', userData.surname, { expires: 7 });
+    Cookies.set('phone', userData.phone, { expires: 7 });
+    Cookies.set('name', userData.name, { expires: 7 });
+    Cookies.set('login', userData.login, { expires: 7 });
+    Cookies.set('email', userData.email, { expires: 7 });
+    Cookies.set('date_of_birth', userData.date_of_birth, { expires: 7 });
+    Cookies.set('country', userData.country, { expires: 7 });
+    Cookies.set('city', userData.city, { expires: 7 });
+}
+
+function showError(form) {
+    if(document.querySelector('.error')){
+        const err = document.createElement('div');
+        err.classList.add('error');
+        err.innerHTML = "Логин и/или пароль не верны";
+        form.insertAdjacentElement('beforeend', err);
+        setTimeout(()=>{
+            err.remove();
+        }, 5000);
+    }
+}

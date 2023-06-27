@@ -1,6 +1,4 @@
 const signInForm = document.querySelector('.signin__form');
-
-
 function signIn(form, url){
     form.addEventListener('submit', async (e)=>{
         e.preventDefault();
@@ -30,8 +28,6 @@ function signIn(form, url){
     });
 }
 signIn(signInForm, '../api/auth.php');
-
-
 function checkUserDataInCookies(userData){
     const cookieNamesArray = ['login', 'name', 'email', 'surname', 'date_of_birth', 'city', 'country', 'phone', 'username'];
     let iterator = 0;

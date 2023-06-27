@@ -3,10 +3,8 @@ window.addEventListener('DOMContentLoaded', () => {
           menu_button = document.querySelector('.menu__button'),
           items = document.querySelector('.menu__items'),
           item = document.querySelectorAll('.menu__items__item'),
-          item_files = document.querySelector('.menu__items__item__files'),
-          item_contacts = document.querySelector('.menu__items__item__contacts'),
-          item_settings = document.querySelector('.menu__items__item__settings'),
-          item_logout = document.querySelector('.menu__items__item__logout'),
+          screens_btns = document.querySelectorAll('.screen'),
+          screens = document.querySelectorAll('.section'),
           theme_button = document.querySelector('.menu__items__item__theme__icon'),
           theme_name = document.querySelector('.menu__items__item__theme__header'),
           userName = document.querySelector('.menu__items__item__user__info-name'),
@@ -76,27 +74,8 @@ window.addEventListener('DOMContentLoaded', () => {
             theme_get();
         }
     });
-
-    // Navigation
-    const screens_btns = document.querySelectorAll('.screen');
-    const screens = document.querySelectorAll('.section');
-    
     screens_btns.forEach(item => {
         item.addEventListener('click', (e)=>{
-            // if(e.target.parentNode != items){
-            //     console.log(e.target.parentNode);
-            //     const screenName = e.target.parentNode.getAttribute("data-screen");
-            //     
-            // } else {
-            //     const screenName = e.target.getAttribute("data-screen");
-                
-            //     screens.forEach(screen => {
-            //         screen.classList.remove('screen_active');
-            //         if(screen.classList.contains(screenName)){
-            //             screen.classList.add('screen_active');
-            //         }
-            //     })
-            // }
             const screenName = item.getAttribute("data-screen");
             console.log(screenName);
             screens.forEach(screen => {
