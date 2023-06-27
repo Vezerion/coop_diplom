@@ -1,6 +1,6 @@
 .files
     position: relative
-    display: flex
+    display: none
     flex-direction: column
     justify-content: space-between
     margin: 0 auto
@@ -56,6 +56,7 @@
             display: flex
             justify-content: space-between
             align-items: center
+            height: 50px
             &__file-type
                 padding: 5px
                 // min-width: 260px
@@ -149,6 +150,7 @@
                     // border: 2px solid transparent
                     border-radius: 100px
                     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+            
     &__upload
         display: flex
         align-items: center
@@ -179,6 +181,39 @@
             height: 35px
             width: 170px
             overflow: hidden
+        
+    &__info
+        width: 250px
+        height: 300px
+        background-color: $color_background_secondary
+        border-radius: 15px
+        margin-top: 100px
+        margin-left: 50px
+        padding: 15px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        &__header
+            text-align: center
+            height: 30px
+            font-size: 20px
+        &__name
+            max-height: 60px
+            word-break: break-all
+        &__size
+            max-height: 30px
+        &__date
+            max-height: 40px
+        &__type
+            max-height: 30px
+        &__close
+            cursor: pointer
+            height: 30px
+            border-radius: 15px
+            border: none
+            outline: none
+            font-size: 18px
+            background-color: $color_accent_primary
 .dropdown
     z-index: 2
     display: block
@@ -364,3 +399,12 @@ body.dark
                 &__wrapper
                     &::-webkit-scrollbar-thumb
                         background-color: $color_accent_secondary
+        &__upload
+            &__button
+                color: $color_text
+                background-color: $color_accent_primary
+            &__choice__button
+                color: $color_text
+                background-color: $color_accent_primary
+    .current-files-view
+        background-color: $color_file_bg
