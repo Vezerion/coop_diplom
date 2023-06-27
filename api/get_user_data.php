@@ -1,6 +1,7 @@
 <?php 
     require_once 'functions.php';
     header("Content-Type: application/json; charset=UTF-8");
+    json_check(json_last_error());
     session_start();
     if (!check_session()){
         http_response_code(240);

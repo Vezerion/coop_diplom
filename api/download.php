@@ -3,7 +3,7 @@
     require_once 'functions.php';
     header("Content-Type: application/octet-stream; charset=UTF-8");
     
-    
+    session_start();
     if (!check_session()){
         http_response_code(240);
         die();

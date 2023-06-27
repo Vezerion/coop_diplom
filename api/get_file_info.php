@@ -1,8 +1,7 @@
-<?php 
-    require_once 'functions.php';
+<?php
+require_once 'functions.php';
     header("Content-Type: application/json; charset=UTF-8");
     json_check(json_last_error());
-    header("Location: account.html");
     session_start();
     if (!check_session()){
         http_response_code(240);
@@ -16,25 +15,22 @@
         http_response_code(239);
         die();
     }
-
-   
-    if(isset($data)){
-        
-        $login = sanitizeString($data['login']);
-        $username = sanitizeString($data['username']);
-        $email = sanitizeString($data['email']);
-        
+    if (isset($data)){
+        $filename = $data['name'];
+        $login = $_SESSION['login'];
         $user = queryMysql("SELECT user_id FROM user WHERE login = '$login'")->fetchColumn();
         $dir_path = queryMysql("SELECT dir_id FROM user_has_files WHERE user_id = '$user'")->fetchColumn();
 
-        $output = queryMysql("SELECT filename FROM storage WHERE dir_ID = '$dir_path'")->fetchAll(PDO::FETCH_ASSOC);
+        $output = queryMysql("SELECT filename, filesize, type, date_of_upload FROM storage WHERE dir_ID = '$dir_path' AND filename = '$filename'")->fetchAll(PDO::FETCH_ASSOC);
         
         echo json_encode($output);
-        
-        die(http_response_code(230));
+        http_response_code(230);
+        die();
     }
     else {
-        die(http_response_code(237));
+        http_response_code(237);
+        die();
     }
+
 
 ?>

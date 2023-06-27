@@ -2,6 +2,7 @@
     require_once 'functions.php';
     date_default_timezone_set('Etc/GMT-3');
     header("Content-Type: application/json; charset=UTF-8");
+    json_check(json_last_error());
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $data = json_decode(file_get_contents('php://input'), true);
     }

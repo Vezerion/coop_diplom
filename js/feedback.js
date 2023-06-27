@@ -53,6 +53,5 @@ function showError(form) {
         setTimeout(()=>{
             err.remove();
         }, 5000);
-    }
-    
+    }  
 }

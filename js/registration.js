@@ -81,8 +81,8 @@ function setUserDataToCookies(data) {
 
 function errorMessage() {
     if(document.querySelector('.error')){
-        err.classList.add('error');
         const err = document.createElement('div');
+        err.classList.add('error');
         err.innerHTML = "Что то пошло не так попробуйте снова.";
         signUpForm.insertAdjacentElement('beforeend', err);
         setTimeout(()=>{

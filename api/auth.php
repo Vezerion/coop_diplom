@@ -2,6 +2,7 @@
   require_once('functions.php');
   
   header("Content-Type: application/json; charset=UTF-8");
+  json_check(json_last_error());
   
   if (isset($_SERVER["REQUEST_METHOD"]) == "POST")
     $data = json_decode(file_get_contents('php://input'), true);

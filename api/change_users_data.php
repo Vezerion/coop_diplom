@@ -5,7 +5,7 @@
     require_once('functions.php');
     session_start();
     header("Content-Type: application/json; charset=UTF-8");
-    
+    json_check(json_last_error());
     if (isset($_SERVER["REQUEST_METHOD"]) == "POST")
         $data = json_decode(file_get_contents('php://input'), true);
     else{
@@ -16,16 +16,21 @@
         http_response_code(240);
         die();
     }
-  
+
+    $login = $_SESSION['login'];
+
+    echo json_encode($login);
+    $user_id = queryMysql("SELECT user_id FROM user WHERE login = '$login'")->fetchColumn();
+
     if (isset($data)){
-        $login = $_SESSION['login'];
+        
         
         $new_login = sanitizeString($data['login']);
         $new_login = preg_replace('/\s\s+/', ' ', $new_login);
         $new_email = sanitizeString($data['email']);
         $new_email = preg_replace('/\s\s+/', ' ', $new_email);
         
-        $user_id = queryMysql("SELECT user_id FROM user WHERE login = '$login'")->fetchColumn();
+        
         
         
         if(!strcmp($new_login, queryMysql("SELECT login FROM user WHERE login != '$login'")->fetchColumn())){
