@@ -64,6 +64,7 @@ function newUserCredentialsFormPostData(form, url){
             body: dataJson
         }).then((data)=>{
             if(data.status == 230) {
+<<<<<<< HEAD
                 setNewUserDataToCookies(dataJson);
                 formInput.forEach(item => {
                     item.readOnly = true;
@@ -72,6 +73,9 @@ function newUserCredentialsFormPostData(form, url){
                     btn.classList.add('fa-pen');
                     btn.classList.remove('fa-lock-open');
                 })
+=======
+                setNewUserDataToCookies(data);
+>>>>>>> 175298dd95f327cce32fd8e3e291017ae7af3b9d
                 formInput.forEach(item => {
                     item.readOnly = true;
                     item.value = Cookies.get(item.getAttribute('data-name'));
