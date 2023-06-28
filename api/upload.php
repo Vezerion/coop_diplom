@@ -1,7 +1,6 @@
 <?php 
 
   require_once 'functions.php';
-  //date_default_timezone_set(date_default_timezone_get());
   date_default_timezone_set('Etc/GMT-3');
   header("Content-Type: application/octet-stream; charset=UTF-8");
   session_start();
@@ -19,7 +18,7 @@
     die();
   }
 
-  if (check_session()){
+  if (isset($file)){
      
     $login = sanitizeString($_SESSION['login']);
 

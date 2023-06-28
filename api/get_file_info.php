@@ -1,5 +1,5 @@
 <?php
-require_once 'functions.php';
+    require_once 'functions.php';
     header("Content-Type: application/json; charset=UTF-8");
     json_check(json_last_error());
     session_start();
