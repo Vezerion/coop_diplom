@@ -234,21 +234,14 @@ window.addEventListener('DOMContentLoaded', () => {
             const allInfoBtns = document.querySelectorAll('.files__manager__layout__item__menu__info');
             allInfoBtns.forEach(btn=>{
                 btn.addEventListener('click', async (e)=>{
-<<<<<<< HEAD
                     const fileName = new FormData();
                     fileName.append('name', e.target.parentElement.parentElement.querySelector('.files__manager__layout__item__menu__download').getAttribute('data-name'));
                     const dataJson = JSON.stringify(Object.fromEntries(fileName.entries()));
                     await fetch("../api/get_file_info.php", {
-=======
-                    const fileName = new formData();
-                    fileName.append('name', e.target.parentElement.parentElement.querySelector('.files__manager__layout__item__menu__download').getAttribute('data-name'));
-                    await fetch("../api/", {
->>>>>>> 175298dd95f327cce32fd8e3e291017ae7af3b9d
                         method: "POST",
                         headers: {
                             'Content-type': 'application/json'
                         },
-<<<<<<< HEAD
                         body: dataJson
                     })
                     .then(res => res.json())
@@ -270,33 +263,6 @@ window.addEventListener('DOMContentLoaded', () => {
                             hidden.addEventListener('click', ()=>{
                                 fileInfoBlock.classList.add('hidden');
                             })
-=======
-                        body: fileName
-                    })
-                    .then(res => {
-                        if(res.status == 230){
-                            res.json()
-                        } else {
-                            throw new Error();
-                        }
-                    })
-                    .then((fileInfo) => {
-                        fileInfoBlock.classList.remove('hidden');
-                        fileInfoBlock.innerHTML = 
-                        `
-                        <div class="files__info__header">
-                        Инофрмация о файле
-                        </div>
-                        <div class="files__info__name">Имя файла: ${fileInfo.filename}</div>
-                        <div class="files__info__size">Размер файла: ${fileInfo.filesize} Кб</div>
-                        <div class="files__info__date">Дата загрузки файла: ${fileInfo.date_of_upload}</div>
-                        <div class="files__info__type">Тип файла: ${fileInfo.type}</div>
-                        <button class="files__info__close">Скрыть информацию</button>
-                        `
-                        const hidden = dosument.querySelector('.files__info__close');
-                        hidden.addEventListener('click', ()=>{
-                            fileInfoBlock.classList.add('hidden');
->>>>>>> 175298dd95f327cce32fd8e3e291017ae7af3b9d
                         })
                     })
                     .catch(()=>{
@@ -307,7 +273,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         //Удаление файлов
         function deleteFile(){
-<<<<<<< HEAD
             const allDeleteBtns = document.querySelectorAll('.files__manager__layout__item__menu__delete');
             allDeleteBtns.forEach(btn=>{
                 btn.addEventListener('click', async (e)=>{
@@ -316,24 +281,11 @@ window.addEventListener('DOMContentLoaded', () => {
                     fileName.append('name', e.target.parentElement.parentElement.querySelector('.files__manager__layout__item__menu__download').getAttribute('data-name'));
                     const dataJson = JSON.stringify(Object.fromEntries(fileName.entries()));
                     await fetch("../api/delete_file.php", {
-=======
-            const allDeleteBtns = document.querySelector('div class="files__manager__layout__item__menu__delete');
-            allDeleteBtns.forEach(btn=>{
-                btn.addEventListener('click', async (e)=>{
-                    const fileName = new formData();
-                    const fileTarget = e.target.parentElement.parentElement;
-                    fileName.append('name', e.target.parentElement.parentElement.querySelector('.files__manager__layout__item__menu__download').getAttribute('data-name'));
-                    await fetch("../api/", {
->>>>>>> 175298dd95f327cce32fd8e3e291017ae7af3b9d
                         method: "POST",
                         headers: {
                             'Content-type': 'application/json'
                         },
-<<<<<<< HEAD
                         body: dataJson
-=======
-                        body: fileName
->>>>>>> 175298dd95f327cce32fd8e3e291017ae7af3b9d
                     }).then(res=>{
                         if(res.status == 230){
                             fileTarget.remove();
