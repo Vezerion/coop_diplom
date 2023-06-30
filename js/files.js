@@ -11,7 +11,15 @@ window.addEventListener('DOMContentLoaded', () => {
         const chooseFileBtn = document.querySelector('.files__upload__choice__button');
         const fileInput = document.querySelector('.files__upload__input');
         const fileName = document.querySelector('.files__upload__name');
+        const filesSearch = document.querySelector('.files__search__input');
+        const filesSearchButton = document.querySelector('.files__search__button');
+        const parent = document.querySelector('.files__manager__layout__wrapper');
+        const reload = document.querySelector('.files__manager__navigation__reload');
         
+        reload.addEventListener('click', ()=>{
+            getFiles();
+        });
+
         dropdown_btn.addEventListener('click', ()=> {
         menu.classList.toggle('menu_active');
         dropdown_menu.classList.toggle('dropdown');
@@ -41,9 +49,9 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
         });
-    // Функция для получения всех фалов пользователя
+    // Функция для получения всех файлов пользователя
         async function getFiles() {
-            const parent = document.querySelector('.files__manager__layout__wrapper');
+            
             removeAllChildren(parent);
             const formData = new FormData();
             formData.append('login', Cookies.get('login'));
@@ -59,6 +67,11 @@ window.addEventListener('DOMContentLoaded', () => {
             })
             .then(data=> data.json())
             .then((file)=>{
+                makeAndShowFiles(file);
+            });
+        }
+        //Функция для создания и отображения файлов в верстке
+            function makeAndShowFiles(file){
                 file.forEach(obj => {
                     const item = document.createElement("div");
                     item.classList.add('files__manager__layout__item');
@@ -79,8 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 download();
                 info();
                 deleteFile();
-            });
-        }
+            }
         //Функция для открытия меню файла 
             function files_menu() {
             const all = document.querySelectorAll('.files__manager__layout__item');
@@ -88,7 +100,7 @@ window.addEventListener('DOMContentLoaded', () => {
             all.forEach(item => {
                 const menu = item.querySelector('.files__manager__layout__item__menu');
                 const menu_btn = item.querySelector('.files__manager__layout__item__button');
-                menu_btn.addEventListener('click', (e)=>{
+                menu_btn.addEventListener('click', ()=>{
                     if(menu.classList.contains('active_file_mini_menu')){
                         menu.classList.remove('active_file_mini_menu');
                     } else {
@@ -200,7 +212,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        // Скакчивание файлов хуево 
+        // Скакчивание файлов
         function download(){
             const file2 = document.querySelectorAll('.files__manager__layout__item__menu__download');
             file2.forEach((item)=>{
@@ -298,6 +310,49 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
             })
         }
+        //Поиск файлов
+        // let timer;
+        filesSearchButton.addEventListener('click', ()=>{
+            searchFiles();
+        });
+
+        async function searchFiles(){
+            try{
+                if(filesSearch.value == ''){
+                    throw new Error();
+                }
+                const fileName = new FormData();
+                fileName.append('filename', filesSearch.value);
+                const fileNameJson = JSON.stringify(Object.fromEntries(fileName.entries()));
+                const response = await fetch('', {
+                    method: "POST",
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: fileNameJson
+                });
+                if(response.status == 230){
+                    const json = response.json();
+                    showFoundFiles(json);
+                } else {
+                    throw new Error();
+                }
+            }
+            catch{
+                removeAllChildren(parent);
+                parent.innerHTML = "Что то пошло не так, попробуйте снова";
+                
+                setTimeout(()=>{
+                    getFiles();
+                }, 3000);
+            }
+            
+        }
+        function showFoundFiles(json) {
+            removeAllChildren(parent);
+            makeAndShowFiles(json);
+        }
+        
 });
 
 //

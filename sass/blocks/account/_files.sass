@@ -57,14 +57,24 @@
             justify-content: space-between
             align-items: center
             height: 50px
+            &__reload
+                cursor: pointer
+                font-size: 20px
+                background-color: $color_accent_primary
+                width: 30px
+                height: 30px
+                border-radius: 50px
+                text-align: center
+                line-height: 30px
+                transition: 2s
+                &:hover
+                    transform: rotateZ(360deg)
             &__file-type
                 padding: 5px
-                // min-width: 260px
-                // max-width: 390px
                 width: fit-content
                 display: flex
-                justify-content: space-between
                 align-items: center
+                width: 360px
                 &__menu
                     position: relative
                     display: flex
@@ -352,8 +362,7 @@
                         background-color: $color_accent_primary
                     
 .current-files-view
-    background-color: $color_accent_secondary
-
+    background-color: $color_accent_secondary  
 body.dark 
     $color_text: #e7e7e7  // text #f7edef
     $color_background_primary: #1b1b1a //body_bg #120809
