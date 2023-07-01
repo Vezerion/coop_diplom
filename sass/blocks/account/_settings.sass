@@ -63,3 +63,23 @@
             background-color: $color_accent_primary
             color: $color_text
             cursor: pointer
+body.dark 
+    $color_text: #e7e7e7  // text #f7edef
+    $color_background_primary: #1b1b1a //body_bg #120809
+    $color_background_secondary: #4a4440 //items_bg #2b1217
+    $color_accent_primary:  #585643 //buttons & hovers #4ab09d  
+    $color_accent_secondary: #e7e7e7 //files #90d0c4 
+    $color_file_bg: #3b342f
+
+    .settings
+        &__header
+            color: $color_text
+        &__form
+            background-color: $color_background_secondary
+            color: $color_text
+            &__submit-btn
+                background-color: $color_accent_primary
+                color: $color_text
+            &__cancel-btn
+                background-color: $color_accent_primary
+                color: $color_text

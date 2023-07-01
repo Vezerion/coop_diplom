@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>Контакты</title>
+</head>
+<body>
+    <header class="header">
+        <div class="worker">
+            <div class="worker__photo">
+                <img src="img/podrezov_bg.png" alt="">
+            </div>
+            <div class="worker__info">
+                <div class="worker__info__name">Подрезов Илья</div>
+                <div class="worker__info__job">Frontend-разработчик</div>
+                <div class="worker__info__email">ilia.podrezov@gmail.com</div>
+            </div>
+        </div>
+        <div class="worker">
+            <div class="worker__photo">
+                <img src="img/shestakov.jpg" alt="">
+            </div>
+            <div class="worker__info">
+                <div class="worker__info__name">Шестаков Станислав</div>
+                <div class="worker__info__job">Backend-разработчик</div>
+                <div class="worker__info__email">stanislav.shestakov.02@mail.ru</div>
+            </div>
+        </div>
+    </header>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d714.6691239968897!2d36.06347538994934!3d52.951107291962565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41321a7be87401e3%3A0xfe55c2268fc2e241!2z0J7RgNC70L7QstGB0LrQuNC5INCT0L7RgdGD0LTQsNGA0YHRgtCy0LXQvdC90YvQuSDQo9C90LjQstC10YDRgdC40YLQtdGCINC40LzQtdC90Lgg0Jgu0KEuINCi0YPRgNCz0LXQvdC10LLQsA!5e0!3m2!1sru!2sru!4v1682693419512!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <footer class="footer">
+        <div class="adres">
+            <div class="adres__header">Адрес</div>
+            <div class="adres__full">
+                <span>Россия, Орёл, Орловская обл., 302026</span>
+                <span>ул. Комсомольская, 95,</span>
+                <span>Тел: <a href="tel:+79996044809">+7 (999) 604-4809</a></span>
+            </div>
+            <a href="/home" class="adres__home">На главную</a>
+        </div>
+        <div class="contacts__feedback">
+            <div class="contacts__feedback__header">Мы на связи</div>
+            <div class="contacts__feedback__subheader">Оставьте свою заявку и мы свяжемся с вами</div>
+            <form class="contacts__feedback__form">
+                <input type="text" class="contacts__feedback__form__name" required placeholder="Ваше имя">
+                <input type="email" class="contacts__feedback__form__email" required placeholder="Ваш email">
+                <input type="tel" class="contacts__feedback__form__phone" required placeholder="Ваш номер телефона">
+                <textarea class="contacts__feedback__form__msg" required placeholder="Ваше сообщение"></textarea>
+                <button type="submit" class="contacts__feedback__form__button">Отправить</button>
+            </form>
+        </div>
+    </footer>
+    <script src="
+    https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js
+    "></script>
+    <script src="js/theme_check.js"></script>
+    <script src="js/contacts.js"></script>
+</body>
+</html>

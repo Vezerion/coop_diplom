@@ -312,11 +312,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         //Поиск файлов
         // let timer;
-        filesSearchButton.addEventListener('click', ()=>{
-            searchFiles();
-        });
+        
 
-        async function searchFiles(){
+        const event = function(){
+            searchFiles();
+        }
+        filesSearchButton.addEventListener('click', event);
+        async function searchFiles() {
             try{
                 if(filesSearch.value == ''){
                     throw new Error();
@@ -341,9 +343,10 @@ window.addEventListener('DOMContentLoaded', () => {
             catch{
                 removeAllChildren(parent);
                 parent.innerHTML = "Что то пошло не так, попробуйте снова";
-                
+                filesSearchButton.removeEventListener('click', event);
                 setTimeout(()=>{
                     getFiles();
+                    filesSearchButton.addEventListener('click', event);
                 }, 3000);
             }
             

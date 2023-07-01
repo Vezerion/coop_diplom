@@ -5,7 +5,6 @@
     justify-content: space-between
     margin: 0 auto
     margin-top: 30px
-    margin-right: 100px
     &__search
         position: relative
         display: flex
@@ -196,6 +195,7 @@
         width: 250px
         height: 300px
         background-color: $color_background_secondary
+        border: 1px solid $color_background_primary
         border-radius: 15px
         margin-top: 100px
         margin-left: 50px
@@ -203,6 +203,9 @@
         display: flex
         flex-direction: column
         justify-content: space-between
+        position: absolute
+        top: calc( 50% - 200px )
+        left: calc( 50% - 150px )
         &__header
             text-align: center
             height: 30px
@@ -386,6 +389,8 @@ body.dark
             background-color: $color_background_secondary
             color: $color_text
             &__navigation
+                &__reload
+                    background-color: $color_accent_primary
                 &__file-type
                     &__menu
                         color: $color_text

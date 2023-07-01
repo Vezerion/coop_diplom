@@ -1,0 +1,145 @@
+.map
+    width: 100%
+    height: 40vh
+.footer
+    background-color: $color_background_primary
+    height: 29vh
+    display: flex
+.header
+    height: 30vh
+    display: flex
+    margin: 0 auto
+    width: 1140px
+    background-color: $color_background_primary
+    justify-content: space-around
+.worker
+    width: 250px
+    margin-top: 30px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    &__photo
+        width: 170px
+        height: 170px
+        border-radius: 100%
+        img
+            border-radius: 100%
+            width: 100%
+            height: 100%
+            object-fit: cover
+    &__info
+        height: 70px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        text-align: center
+        margin-bottom: 10px
+.adres
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    &__header
+        margin-top: 5px
+        font-size: 30px
+        font-weight: 600
+    &__full
+        height: 40%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        a
+            color: $color_text
+            text-decoration: none
+    &__home
+        width: 170px
+        font-size: 20px
+        border-radius: 25px
+        height: 35px
+        border: none
+        outline: none
+        cursor: pointer
+        background-color: $color_accent_primary
+        text-decoration: none
+        color: $color_text
+        text-align: center
+        line-height: 35px
+.contacts__feedback
+    height: 100%
+    width: 500px
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    &__header
+        font-size: 30px
+        font-weight: 600
+    &__subheader
+        font-size: 20px
+    &__form
+        height: 70%
+        display: grid
+        grid-template: 'a a d d' 'b b d d' 'c c d d' 'e e e e'
+        grid-template-columns: 100px 100px 150px 200px
+        grid-template-areas: 50px 50px 50px 200px
+        row-gap: 10px
+        column-gap: 10px
+        &__name
+            grid-area: a
+            height: 30px
+            border-radius: 15px
+            border: none
+            outline: none
+            padding: 0px 10px
+        &__email
+            grid-area: b
+            height: 30px
+            border-radius: 15px
+            border: none
+            outline: none
+            padding: 0px 10px
+        &__phone
+            grid-area: c
+            height: 30px
+            border-radius: 15px
+            border: none
+            outline: none
+            padding: 0px 10px
+        &__msg
+            grid-area: d
+            resize: none
+            border-radius: 15px
+            border: none
+            outline: none
+            padding: 10px 10px
+        &__button
+            grid-area: e
+            border-radius: 15px
+            border: none
+            outline: none
+            cursor: pointer
+            background-color: $color_accent_primary
+            font-size: 20px
+body.dark   
+    $color_text: #e7e7e7  // text #f7edef
+    $color_background_primary: #1b1b1a //body_bg #120809
+    $color_background_secondary: #4a4440 //items_bg #2b1217
+    $color_accent_primary:  #585643 //buttons & hovers #4ab09d  
+    $color_accent_secondary: #e7e7e7 //files #90d0c4 
+    $color_file_bg: #3b342f
+
+    .header
+        background-color: $color_background_primary
+        color: $color_text
+    .footer
+        background-color: $color_background_primary
+        color: $color_text
+    .adres__full
+        a
+            color: $color_text
+    .adres__home
+        background-color: $color_accent_primary
+        color: $color_text
+    .contacts__feedback__form__button
+        background-color: $color_accent_primary
+        color: $color_text
